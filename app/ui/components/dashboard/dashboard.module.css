@@ -1,0 +1,33 @@
+.dashboard {
+  padding: 5px;
+  display: grid; 
+  align-items: center;
+  text-align: center;
+ 
+ 
+}
+.summary{
+ 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+
+  
+}
+.dashboard h1 {
+  margin-top: 15px;
+  grid-column: 1/-1;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 1024px) {
+  .summary{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+}
+@media screen and (max-width: 768px) {
+  .summary {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+}

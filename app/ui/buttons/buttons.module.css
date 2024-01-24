@@ -1,0 +1,249 @@
+.buttonPrimary{
+   
+ 
+  font-weight: 600;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 15rem;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.5);     
+  border: 3px solid rgb(168, 168, 168);
+  border-radius: 5px;
+  margin: 5px;
+  margin-top: 1rem;
+ 
+}
+.buttonPrimary:hover{
+  background-color: rgba(1, 1, 1, 0.226); 
+ 
+  box-shadow: 0px 0px 5px 2px #00bae9;
+ 
+}
+
+
+
+
+
+
+
+
+
+
+.ButtonAdd{
+   
+ 
+  font-weight: 600;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 15rem;
+  display: flex;
+  font-weight: 800;
+  color:var(--color-Primary);
+  flex-direction: row;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.7);     
+  border: 3px solid rgb(168, 168, 168);
+  border-radius: 10px;
+  margin: 5px;
+  box-shadow: 0px 0px 5px 2px #00bae9;
+ 
+ 
+}
+.ButtonAdd:hover {
+  background-color: rgba(1, 1, 1, 0.526); 
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
+  outline-color: #00e932;
+  color:#ffffff;
+ 
+  border: 3px solid #00e932;
+  box-shadow: 0px 0px 5px 2px #00e932;
+ 
+}
+
+
+
+
+
+
+
+
+
+.svgEditButton{
+  display:flex;
+  border: #046780 1px solid ;
+  padding: 5px;
+  width: max-content;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #046780;
+}
+.svgEditButton:hover{
+  box-shadow: #046780 0px 0px 5px 1px ;
+  background: rgba(1, 2, 24,.2);
+}
+
+
+
+
+
+
+
+
+
+
+ 
+@property --gradient-angle {
+	inherits: false;
+	initial-value: 0deg;
+	syntax: "<angle>";
+}
+
+@keyframes spin {
+	to {
+		--gradient-angle: 360deg;
+	}
+}
+
+.sectionButtonLogin {
+  --black: oklch(17.7% 0.105 262.48);
+  --purple: oklch(60% 0.37 294.7);
+  --orange: oklch(60% 0.37 64.65);
+  --yellow: oklch(60% 0.37 109.08);
+  --blue: oklch(60% 0.37 237.06);
+  --black-alpha-50: color-mix(in oklch, var(--black), transparent);
+  display: flex;
+  
+}
+
+.divButtonLogin {
+  animation: spin 2s linear infinite;
+  background: linear-gradient(to bottom, var(--black), var(--black)) padding-box,
+    conic-gradient(
+      from var(--gradient-angle), /* Falta definir --gradient-angle */
+      var(--purple),
+      var(--orange),
+      var(--yellow),
+      var(--blue),
+      var(--purple)
+    ) border-box;
+  border: 5px solid transparent;
+  border-radius: 20px;
+  position: relative;
+  width: 160px;
+  height:  50px;
+  z-index: 10;
+  margin-bottom: 1rem;
+  
+}
+
+.divButtonLogin::before {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  content: "";
+  
+ 
+  inset: 0;
+  z-index: 5;
+ 
+}
+
+.divButtonLogin::after {
+  animation: spin 2s linear infinite;
+  background: conic-gradient(
+    from var(--gradient-angle), /* Falta definir --gradient-angle */
+    var(--purple),
+    var(--orange),
+    var(--yellow),
+    var(--blue),
+    var(--purple)
+  );
+  border-radius: 15px;
+  content: "";
+  position: absolute;
+  inset: 0;
+  filter: blur(50px);
+  z-index: 1;
+}
+ 
+
+.ModalEliminar {
+  position: fixed;
+  padding: 1rem;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 100 ; 
+  font-weight: 700;
+  background-color: rgba(14, 1, 1, 0.5);
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.ModalEliminar div {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 10px;
+  top: 0;
+ 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.ModalEliminar p{
+  
+  font-weight: 800;
+  color: #063f6e;
+  margin: 1rem;
+
+}
+.ModalEliminar div button  {
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: 1px solid #be1104;
+  color: #be1104;
+  padding: 0.5rem;
+  margin: 0.5rem;
+ 
+}
+.ModalEliminar div button:hover  {
+  background-color: #be1104;
+  color: #ffffff;
+  box-shadow: 0px 0px 5px 1px #d62525;
+}
+.ModalEliminar div button:last-child  {
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: 1px solid #0493be;
+  color: #063f6e;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+.ModalEliminar div button:last-child:hover  {
+  background-color: #0493be;
+  color: #ffffff;
+  box-shadow: 0px 0px 5px 1px #2e96b6;
+}
+
+.svgDeletProduct{
+  display:flex;
+  border: #be1104 1px solid ;
+  padding: 5px;
+  width: max-content;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #be1104;
+}
+.svgDeletProduct:hover{
+  box-shadow: #be1104 0px 0px 5px 1px ;
+  background: rgba(235, 13, 13, 0.2);
+}

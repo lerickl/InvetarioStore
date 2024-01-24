@@ -1,0 +1,89 @@
+ 
+
+
+
+.selectMenu{
+  width: 100%;
+ 
+  margin-top: 0px;
+}
+.selectMenu p{
+  font-size: .8rem;
+  font-weight: 600;
+   
+  position: absolute;
+  color: #046780;
+
+  
+
+}
+.selectBtn{
+  
+  display: flex;
+  height: 55px;
+  background-color: rgba(1, 1, 1, 0);
+  padding: 15px;
+  color:#050031;
+  font-weight: 700;
+  border-radius: 5px;
+  height: fit-content;
+  cursor: pointer;
+ 
+  justify-content: space-between;
+  box-shadow: 0 0 5px #0cd8f3c9;
+  border-bottom: #fff solid 2px;
+}
+.selectedBtn{
+  display: flex;
+  height: 55px;
+  background: rgba(1, 1, 1, 0);
+  padding: 15px;
+  color: #050031;
+  
+  font-weight: 600;
+  border-radius: 5px;
+ 
+  cursor: pointer;
+  margin-top: 1rem;
+  justify-content: space-between;
+  box-shadow: 0 0 5px rgba(1, 1, 1, 0.3);
+  border-bottom:  #046780 solid 2px;
+}
+.selectBtn i{
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+ 
+.options{
+  position: absolute;
+  padding: 15px;
+  background: rgba(1, 1, 1, 0.3);
+ 
+  color: black;
+  margin-top: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(1, 1, 1, 0.3);
+  font-weight: 400;
+  z-index: 10;
+}
+.option {
+  position: relative;
+  display: flex;
+  height: 40px;
+  cursor: pointer;
+  justify-content: center;
+  padding: 0 10px;
+  border-radius: 5px ;
+  align-items: center;
+  background: rgba(1, 1, 1, 0.3);
+  color: #fff;
+}
+ 
+.option:hover{
+  background: #fff;
+  color: black;
+}
+.option i{
+  font-size: 1rem;
+  margin-right: 12px;
+}

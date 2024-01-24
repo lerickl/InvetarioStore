@@ -1,0 +1,21 @@
+.sectionSearch{
+  padding: 5px;
+}
+.search{
+  
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ 
+}
+ 
+ 
+.input{
+  color: black;
+  border-radius: 5px;
+  padding: 5px;
+  background: rgb(119, 118, 118);
+}
+.input:focus{
+  background-color: rgba(255,255,255,1);
+}

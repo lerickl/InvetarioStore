@@ -1,0 +1,897 @@
+.table{
+ 
+  border-collapse: separate;
+  background: rgba(255,255,255,0.2);
+  border-radius: 5px;
+  margin-right: 1rem;
+}
+.table thead{
+    background-color: #f1f1f1;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.2rem; 
+    
+    
+}
+.table thead tr th{
+  border-radius: 5px;
+  border: 1px solid #000;
+ 
+}
+.table thead tr th{
+    padding: 1rem;
+
+    text-align: center;
+}
+.table tbody tr td{
+  text-align: center;
+  padding: .5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tableViewSales{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255,255,255,0.2);
+  border-radius: 5px;
+ 
+  box-shadow: #046780 0px 0px 5px 5px ;
+  margin-top: 1rem;
+}
+.tableViewSales div{
+  width: 100%;
+ 
+}
+.thead{
+  display: flex;
+  
+}
+ 
+.thead ul{
+  display: grid;
+  grid-auto-columns: 100px;
+  grid-template-columns: 2fr 2fr 1fr 1fr 1fr 2fr  ;
+  width: 100%;
+  gap: 5px;
+  border-bottom: 1px solid #000;
+}
+
+.thead ul li{
+  padding: 5px;
+  text-align: center;
+  overflow: hidden;
+  font-weight: 700;
+ background: rgba(255,255,255,0.2);
+  border-radius: 5px;
+  min-width: 90px;
+  box-shadow: #046780 1px 5px 5px 1px;
+}
+.tbody {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 5px;
+  width: 100%;
+}
+.tbody ul{
+  display: grid;  
+  grid-template-columns: 2fr 2fr 1fr 1fr 1fr 2fr  ;
+  grid-row: 80px;
+  width: 100%;
+  gap: 5px;
+  box-shadow: #046780 0px 5px 0px 0px;
+  background: rgba(255,255,255,0.2);
+}
+.tbody ul li{
+  grid-area: auto;
+  align-items: center;
+  min-width: 90px;
+  padding: 5px;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tbody ul li:first-child{
+  font-size: .5rem;
+
+
+}
+
+
+
+.tableViewSales input{
+  color: #000;
+  width: 50px;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tableViewProducts { 
+  position: relative;
+  display: block;
+  flex-direction: column;
+  padding: 10px;
+  margin-top: 5px;
+  box-shadow: #046780 0px 0px 5px 5px;  
+  width: 100%; 
+  max-width: 100%;
+  overflow-x: auto;
+}
+.tableViewProducts ul {
+  
+  display: grid;
+  grid-template-columns: minmax(50px,1fr) minmax(100px, 2fr) minmax(100px,2fr) minmax(50px,1fr) 1fr 1fr ; 
+  gap: 1px; 
+  margin-bottom: .3rem;
+ 
+}
+.tableViewProducts ul:first-child{
+ 
+  border-bottom: #046780 3px solid;
+}
+.tableViewProducts ul li {
+  display: grid;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 2px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  font-size: 1rem;
+   
+}
+
+.tableViewProducts ul li:first-child{
+ color:rgb(0, 162, 255);
+ font-size: .5rem;
+}
+.tableViewProducts ul:first-child li{
+  color:rgb(0, 3, 49);
+  font-size: 1rem;
+  font-weight: 700;
+
+ }
+ .tableViewProducts ul:first-child li span{
+  color:rgb(0, 3, 49);
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+ }
+ .tableViewProducts svg {
+  color:rgb(0, 140, 255);
+
+ }
+  
+ .tableViewProducts ul li:last-child svg{
+  cursor: pointer;
+ }
+ .tableViewProducts ul li:last-child svg:last-child{
+  color:rgb(255, 0, 0);
+
+ }
+
+ @media screen and (max-width: 568px) {
+ 
+   .tableViewProducts {
+    overflow: scroll;
+   }
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sectionTables{
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+}
+.itemsTable{
+  display: flex;
+  width: 100%;
+  max-height: calc(89% - 1.6rem);
+  background-color: #fffb;
+  margin: .8rem auto;
+  border-radius:5px;
+
+  overflow: overlay;
+  box-shadow: 0 0 1rem #0cd8f3c9;
+}
+
+.itemsTable::-webkit-scrollbar{
+  width: .8rem;
+  height: .8rem;
+}
+.itemsTable::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  background-color: #0004;
+  visibility: hidden;
+}
+.itemsTable:hover::-webkit-scrollbar-thumb{ 
+  visibility: visible;
+}
+.itemsTable table{
+  width: 100%;
+  background-color: rgba(173, 215, 228, 0.849);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  box-shadow: 0 .4rem .8rem #0005;
+  border-radius: 5px;
+  border-collapse: collapse;
+  padding: 1rem; 
+  overflow: hidden;  
+}
+.itemsTable table thead{
+  border-radius: 5px;
+   
+}
+.itemsTable table thead svg{ 
+  color: #00a2ff;
+  width: 40px;
+  height: 40px;
+}
+ 
+.itemsTable table,.itemsTable  th,.itemsTable  td {
+    border-collapse: collapse;
+    padding: 1rem;
+    text-align: left;
+}
+ 
+.itemsTable table thead th {
+  position: sticky;  
+  background-color: #d1dedcfe;
+  cursor: pointer;
+  color: #046780;
+  text-align: center;
+}
+.itemsTable table tbody td{
+ 
+  text-align: center;
+}
+.itemsTable table tbody td a{
+  display: flex;
+  align-items: center;
+ 
+}
+ 
+.itemsTable table tbody tr {
+  --delay: .1s;
+  transition: .5s ease-in-out var(--delay), background-color 0s;
+}
+.itemsTable tbody tr.hide {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.itemsTable tbody tr:hover {
+  background-color: #fff6 !important;
+}
+.itemsTable tbody tr td,
+.itemsTable tbody tr td p,
+.itemsTable tbody tr td img {
+    transition: .2s ease-in-out;
+}
+
+.itemsTable tbody tr.hide td,
+.itemsTable tbody tr.hide td p {
+    padding: 0;
+    font: 0 / 0 sans-serif;
+    transition: .2s ease-in-out .5s;
+}
+
+.itemsTable tbody tr.hide td img {
+    width: 0;
+    height: 0;
+    transition: .2s ease-in-out .5s;
+}
+.itemsTable tbody tr td:first-child{
+  font-size: .4rem;
+}
+
+.tdCodigo{
+  font-size: .3rem !important;
+  height: 40px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  display: flex !important;
+}
+.spanStatusPaid{
+  color: #ffffff;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: #44ff3e;
+  font-weight: 600;
+  cursor: default;
+}
+.spanStatusPending{
+  color: #ffffff;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: #f05945 ;
+  font-weight: 600;
+  cursor: default;
+}
+@media screen and (max-width: 768px){
+  .itemsTable tbody tr td:first-child{
+    font-size: 1rem;
+  }
+  .itemsTable td {
+    overflow:auto;
+    padding: 5px;
+    font-size: .9rem;
+  }
+ 
+  .itemsTable table, .itemsTable thead, .itemsTable tbody, .itemsTable tr, .itemsTable th, .itemsTable td{
+    display: block;
+    
+ 
+  }
+  .itemsTable thead tr { position: absolute;top: -9999px;left: -9999px; }
+		
+  .itemsTable tr { border: 1px solid #ccc; }
+
+  .itemsTable td { border: none;border-bottom: 1px solid #ccc; position: relative;padding-left: 50%;text-align:left }
+
+  .itemsTable td:before { 
+    color: #046780;
+    font-weight: 800;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 45%; 
+    font-size: 1rem;
+    padding-right: 5px; 
+    white-space: nowrap;}
+      
+  .itemsTable td:nth-of-type(1):before { content: "Codigo"; }
+  .itemsTable td:nth-of-type(2):before { content: "Monto"; }
+  .itemsTable td:nth-of-type(3):before { content: "Fecha"; }
+  .itemsTable td:nth-of-type(4):before { content: "Estado"; }
+ 
+
+}
+
+ 
+
+/*search tabla de productos*/
+.search_products_Table{
+
+}
+/*tabla de productos */
+.sectionTableProducts{ 
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  
+}
+.products_table
+{
+  display: flex;
+  width: 100%;
+  max-height: calc(89% - 1.6rem);
+  background-color: #fffb;
+  margin: .8rem auto;
+  border-radius:5px;
+
+  overflow: overlay;
+  box-shadow: 0 0 1rem #0cd8f3c9;
+
+}
+.products_table::-webkit-scrollbar{
+  width: .8rem;
+  height: .8rem;
+}
+.products_table::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  background-color: #0004;
+  visibility: hidden;
+}
+.products_table:hover::-webkit-scrollbar-thumb{ 
+  visibility: visible;
+}
+.products_table table{
+  width: 100%;
+  background-color: rgba(173, 215, 228, 0.849);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  box-shadow: 0 .4rem .8rem #0005;
+  border-radius: 5px;
+  border-collapse: collapse;
+  padding: 1rem; 
+  overflow: hidden;  
+}
+.products_table table thead{
+  border-radius: 5px;
+   
+}
+.products_table table thead svg{ 
+  color: #00a2ff;
+  width: 40px;
+  height: 40px;
+}
+ 
+.products_table table,.products_table  th,.products_table  td {
+    border-collapse: collapse;
+    padding: 1rem;
+    text-align: left;
+}
+ 
+.products_table table thead th {
+  position: sticky;  
+  background-color: #d1dedcfe;
+  cursor: pointer;
+  color: #046780;
+  text-align: center;
+}
+.products_table table tbody td{
+ 
+  text-align: center;
+}
+.products_table table tbody td a{
+  display: flex;
+  align-items: center;
+ 
+}
+ 
+.products_table table tbody tr {
+  --delay: .1s;
+  transition: .5s ease-in-out var(--delay), background-color 0s;
+}
+.products_table tbody tr.hide {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.products_table tbody tr:hover {
+  background-color: #fff6 !important;
+}
+.products_table tbody tr td,
+.products_table tbody tr td p,
+.products_table tbody tr td img {
+    transition: .2s ease-in-out;
+}
+
+.products_table tbody tr.hide td,
+.products_table tbody tr.hide td p {
+    padding: 0;
+    font: 0 / 0 sans-serif;
+    transition: .2s ease-in-out .5s;
+}
+
+.products_table tbody tr.hide td img {
+    width: 0;
+    height: 0;
+    transition: .2s ease-in-out .5s;
+}
+.products_table tbody tr td:first-child{
+  font-size: .4rem;
+}
+.svgEditProduct{
+  display:flex;
+  border: #046780 1px solid ;
+  padding: 5px;
+  width: max-content;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #046780;
+}
+.svgEditProduct:hover{
+  box-shadow: #046780 0px 0px 5px 1px ;
+  background: rgba(1, 2, 24,.2);
+}
+
+.contentAcctionProducts{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-evenly;
+  align-items: center;
+  width: 100%;
+}
+ 
+@media screen and (max-width: 768px){
+  .products_table tbody tr td:first-child{
+    font-size: 1rem;
+  }
+  .products_table td {
+    overflow:auto;
+    padding: 5px;
+    font-size: .9rem;
+  }
+ 
+  .products_table table, .products_table thead, .products_table tbody, .products_table tr, .products_table th, .products_table td{
+    display: block;
+    
+ 
+  }
+  .products_table thead tr { position: absolute;top: -9999px;left: -9999px; }
+		
+  .products_table tr { border: 1px solid #ccc; }
+
+  .products_table td { border: none;border-bottom: 1px solid #ccc; position: relative;padding-left: 50%;text-align:left }
+
+  .products_table td:before { 
+    color: #046780;
+    font-weight: 800;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 45%; 
+    font-size: 1rem;
+    padding-right: 5px; 
+    white-space: nowrap;}
+      
+  .products_table td:nth-of-type(1):before { content: "Codigo"; }
+  .products_table td:nth-of-type(2):before { content: "Nombre"; }
+  .products_table td:nth-of-type(3):before { content: "Descripción"; }
+  .products_table td:nth-of-type(4):before { content: "Precio"; }
+  .products_table td:nth-of-type(5):before { content: "Stock"; }
+  .products_table td:nth-of-type(6):before { content: "Accion"; }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*table invoices*/
+
+
+.TableInvoice{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: calc(89% - 1.6rem);
+  background-color: #fffb;
+  margin-top: 1rem;
+  box-shadow: #046780 0px 0px 5px 1px ;
+  overflow: overlay;
+}
+ 
+.TableInvoice::-webkit-scrollbar{
+  width: .8rem;
+  height: .8rem;
+}
+.TableInvoice::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  background-color: #0004;
+  visibility: hidden;
+}
+.TableInvoice:hover::-webkit-scrollbar-thumb{ 
+  visibility: visible;
+}
+
+.TableInvoice table{
+  width: 100%;
+  background-color: rgba(173, 215, 228, 0.849);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  box-shadow: 0 .4rem .8rem #0005;
+  border-radius: 5px;
+  border-collapse: collapse;
+  padding: 1rem;
+ 
+  overflow: hidden;
+}
+  
+.TableInvoice table thead{
+  border-radius: 5px;
+   
+}
+ 
+.TableInvoice table,.TableInvoice  th,.TableInvoice  td {
+  border-collapse: collapse;
+  padding: 1rem;
+  text-align: left;
+}
+.TableInvoice table thead th {
+  position: sticky;  
+  background-color: #d1dedcfe;
+  cursor: pointer;
+  color: rgb(1, 2, 24);
+  text-align: center;
+}
+.TableInvoice table tbody td{
+ 
+  text-align: center;
+}
+.TableInvoice table tbody td a{
+  display: flex;
+  align-items: center;
+ 
+}
+
+.TableInvoice table tbody tr {
+  --delay: .1s;
+  transition: .5s ease-in-out var(--delay), background-color 0s;
+}
+.TableInvoice tbody tr.hide {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.TableInvoice tbody tr:hover {
+  background-color: #fff6 !important;
+}
+.TableInvoice tbody tr td,
+.TableInvoice tbody tr td p,
+.TableInvoice tbody tr td img {
+    transition: .2s ease-in-out;
+}
+
+.TableInvoice tbody tr.hide td,
+.TableInvoice tbody tr.hide td p {
+    padding: 0;
+    font: 0 / 0 sans-serif;
+    transition: .2s ease-in-out .5s;
+}
+
+.TableInvoice tbody tr td:first-child{
+  font-size: .4rem;
+ 
+
+}
+.TableInvoice thead tr th:first-child{
+  display: flex;
+  justify-content: center;
+}
+
+ 
+.svgDelete{
+  display:flex;
+  border: #046780 1px solid ;
+  padding: 5px;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  
+}
+.svgDelete svg{
+  color: #ff0101;
+  
+  
+}
+.svgDelete:hover{
+  border: #ee0909cc 1px solid ;
+  color: #fff;
+  box-shadow: #ee0909cc 0px 0px 5px 1px ;
+}
+ 
+
+.total{
+  padding: 5px;
+  margin: 1rem 0 .5rem 0.5rem;
+  justify-content: center;
+  max-width: 180px; 
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  background: rgba(128, 198, 255, 0.356);
+  font-weight: 700;
+  box-shadow: #046780 0px 0px 5px 1px ;
+}
+.totalP{
+  margin-top: 5px;
+  padding: 5px;
+  border: #00000079 1px solid;
+  width: 100%;
+   ;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  
+}
+.inputQuantity {
+  width: 100%;
+  border: #046780 solid 1px !important;
+  background: #f1f1f1;
+  outline-color: #00a2ff;
+  border-radius: 5px  ;
+}
+.Allmounts{
+  display: grid; 
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+.inputQuantityTable{
+  width: 50px;
+  border: #046780 solid 1px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sectionTable{ 
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  
+}
+.tableAllInvoices{
+  display: flex;
+  width: 100%;
+  max-height: calc(89% - 1.6rem);
+  background-color: #fffb;
+  margin: .8rem auto;
+  border-radius:5px;
+  overflow: overlay;
+  box-shadow: 0 0 1rem #0cd8f3c9;
+}
+.tableAllInvoices::-webkit-scrollbar{
+  width: .8rem;
+  height: .8rem;
+}
+.tableAllInvoices::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  background-color: #0004;
+  visibility: hidden;
+}
+.tableAllInvoices:hover::-webkit-scrollbar-thumb{ 
+  visibility: visible;
+}
+.tableAllInvoices table tbody tr td:first-child{
+  font-size: .4rem;
+}
+
+.tableAllInvoices table{
+  width: 100%;
+  background-color: rgba(173, 215, 228, 0.849);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  box-shadow: 0 .4rem .8rem #0005;
+  border-radius: 5px;
+  border-collapse: collapse;
+  padding: 1rem;
+ 
+  overflow: hidden;
+}
+  
+.tableAllInvoices table thead{
+  border-radius: 5px;
+   
+}
+ 
+.tableAllInvoices table,.tableAllInvoices  th,.tableAllInvoices  td {
+  border-collapse: collapse;
+  padding: 1rem;
+  text-align: left;
+}
+.tableAllInvoices table thead th {
+  position: sticky;  
+  background-color: #d1dedcfe;
+  cursor: pointer;
+  color: rgb(1, 2, 24);
+  text-align: center;
+}
+.tableAllInvoices table tbody td{
+ 
+  text-align: center;
+}
+.tableAllInvoices table tbody td a{
+  display: flex;
+  align-items: center;
+ 
+}
+
+.tableAllInvoices table tbody tr {
+  --delay: .1s;
+  transition: .5s ease-in-out var(--delay), background-color 0s;
+}
+.tableAllInvoices tbody tr.hide {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.tableAllInvoices tbody tr:hover {
+  background-color: #fff6 !important;
+}
+.tableAllInvoices tbody tr td,
+.tableAllInvoices tbody tr td p,
+.tableAllInvoices tbody tr td img {
+    transition: .2s ease-in-out;
+}
+
+.tableAllInvoices tbody tr.hide td,
+.tableAllInvoices tbody tr.hide td p {
+    padding: 0;
+    font: 0 / 0 sans-serif;
+    transition: .2s ease-in-out .5s;
+}
+
+.tableAllInvoices tbody tr td:first-child{
+  font-size: .4rem;
+ 
+
+}
+.tableAllInvoices thead tr th:first-child{
+  display: flex;
+  justify-content: center;
+}
+
+
+
+

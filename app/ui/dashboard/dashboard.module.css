@@ -1,0 +1,133 @@
+
+.dashboard{
+ 
+  display: grid;
+  flex-direction: column;
+ 
+  margin-top: 1rem;
+  width:98%;
+  padding: 5px;
+  border-radius: 5px;  
+  border: 1px solid rgb(255, 255, 255)  ;
+  box-shadow: 0px 0px 5px 0px rgba(241, 3, 170, 0.75);
+  color: #fff;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+.dashboard svg{
+  color: #00aeff;
+
+}
+.dashboard a{
+  height: 40px;
+  border: 1px solid none;
+  border-bottom: 1px solid rgb(255, 255, 255)  ;
+  box-shadow: -1px 0px 5px 2px rgb(0, 204, 255) none;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  margin-top: 10px;
+  padding: 5px;
+  margin: 5px;
+   
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+ 
+ 
+}
+.dashboard a:first-child{
+  margin-top: 1rem;
+}
+.dashboard a:last-child{
+  margin-bottom: 1rem;
+}
+.dashboard a:hover{
+  box-shadow: -1px 0px 5px 2px rgb(0, 204, 255);
+  
+  border: 1px solid rgb(0, 255, 21)  ;
+  color: #ff2600c4;
+  background: rgba(0, 204, 255,.2);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+ 
+}
+ 
+.dashboard a:hover svg{
+  color: rgb(0, 255, 21);
+}
+.active{
+  color: #000;
+  font-weight: 700;
+
+  background-color: rgba(255, 255, 255, 0.815);
+}
+
+.cardWrap{
+
+  border-radius: 5px;
+  display: grid;
+ 
+  align-items: center;
+  padding: 10px;
+ 
+  width: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: #000;
+  font-weight: 600;
+  box-shadow: rgb(21, 255, 0) 0px 0px 5px 1px;
+}
+.cardWrap div{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  font-size: .8rem;  
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+}
+.cardWrap div svg{
+  
+  color: rgb(0, 204, 255);
+}
+.cardWrap div h3{
+  font-weight: 600;
+  
+}
+.cardWrap p{
+  margin-top: .1rem;  
+  margin-bottom: .5rem;
+  background: rgba(97, 97, 97,.5); 
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 5%;
+  width: 90%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+.pLinkIcon{
+  
+  display: grid;
+  margin-left: 5px;
+
+}
+
+
+@media(max-width: 768px) {
+  .pLinkIcon{   
+    display: none;  
+  }
+  .dashboard {
+    width: auto;
+    padding: 5px;
+  }
+   
+  .dashboard a{
+    justify-content: center;
+
+ 
+  }
+}

@@ -1,0 +1,90 @@
+.containerCards{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 100%;
+  grid-gap: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .containerCards{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+}
+@media screen and (max-width: 768px) {
+  .containerCards{
+    grid-template-columns: 1fr 1fr;
+  }
+  
+}
+
+ 
+ 
+
+.cardWrap{
+ 
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgb(21, 255, 0) 0px 0px 5px 1px;
+  padding: 10px;
+  width: 100%;
+
+}
+.cardWrap div {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin: 5px;
+  justify-content: center;
+  align-items: center;  
+  padding: 2px;
+  width: 100%;
+}
+.cardWrap div div:first-child{
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+ 
+  animation: animateskeleton 2.5s infinite ease-in-out;
+  background: rgba(155, 154, 154, 0.938);
+
+}
+.cardWrap div div:last-child{
+  height: 20px;
+  width: 50%;
+  border-radius: 5px;
+  background: rgba(155, 154, 154, 0.938);
+  animation: animateskeleton 2.5s infinite ease-in-out;
+
+}
+ 
+.cardWrap p{
+  width:90%;
+  height: 35px;
+
+  margin-bottom: .5rem;
+  background: rgba(155, 154, 154, 0.938);
+  border-radius: 5px;
+  padding: 5px;  
+  animation: animateskeleton 2.5s infinite ease-in-out;
+  
+}
+@keyframes animateskeleton {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+  
+}

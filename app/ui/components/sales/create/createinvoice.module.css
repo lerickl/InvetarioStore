@@ -1,0 +1,155 @@
+.CreateInvoice{
+  padding: 5px;
+}
+ 
+.search{
+  display: flex;
+  flex-direction: row;
+  background: rgba(255, 255, 255, .2);
+  -webkit-backdrop-filter: blur(10px); 
+  backdrop-filter: blur(10px);
+  padding: 5px;
+  border-radius: 5px;
+}
+.CreateInvoice div:first-child{
+  box-shadow: #046780 0px 0px 5px 1px ;
+  padding: 10px;
+}
+.inputActive{
+ 
+  outline-color: rgb(2, 255, .2);
+}
+.CreateInvoice div input{
+  margin-right: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ff0101;
+  padding: 5px;
+  text-align: center;
+ 
+  background-color: rgba(255, 0, 0, 0.1);
+  
+}
+.CreateInvoice div input:focus{
+  background-color: rgb(255, 255, 255);
+ 
+  
+}
+
+
+
+
+.TableInvoice{
+  display: flex;
+  width: 100%;
+  max-height: calc(89% - 1.6rem);
+  background-color: #fffb;
+  margin-top: 1rem;
+  box-shadow: #046780 0px 0px 5px 1px ;
+  overflow: overlay;
+}
+.TableInvoice::-webkit-scrollbar{
+  width: .8rem;
+  height: .8rem;
+}
+.TableInvoice::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  background-color: #0004;
+  visibility: hidden;
+}
+.TableInvoice:hover::-webkit-scrollbar-thumb{ 
+  visibility: visible;
+}
+
+.TableInvoice table{
+  width: 100%;
+  background-color: rgba(173, 215, 228, 0.849);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  box-shadow: 0 .4rem .8rem #0005;
+  border-radius: 5px;
+  border-collapse: collapse;
+  padding: 1rem;
+ 
+  overflow: hidden;
+}
+  
+.TableInvoice table thead{
+  border-radius: 5px;
+   
+}
+ 
+.TableInvoice table,.TableInvoice  th,.TableInvoice  td {
+  border-collapse: collapse;
+  padding: 1rem;
+  text-align: left;
+}
+.TableInvoice table thead th {
+  position: sticky;  
+  background-color: #d1dedcfe;
+  cursor: pointer;
+  color: rgb(1, 2, 24);
+  text-align: center;
+}
+.TableInvoice table tbody td{
+ 
+  text-align: center;
+}
+.TableInvoice table tbody td a{
+  display: flex;
+  align-items: center;
+ 
+}
+
+.TableInvoice table tbody tr {
+  --delay: .1s;
+  transition: .5s ease-in-out var(--delay), background-color 0s;
+}
+.TableInvoice tbody tr.hide {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.TableInvoice tbody tr:hover {
+  background-color: #fff6 !important;
+}
+.TableInvoice tbody tr td,
+.TableInvoice tbody tr td p,
+.TableInvoice tbody tr td img {
+    transition: .2s ease-in-out;
+}
+
+.TableInvoice tbody tr.hide td,
+.TableInvoice tbody tr.hide td p {
+    padding: 0;
+    font: 0 / 0 sans-serif;
+    transition: .2s ease-in-out .5s;
+}
+
+.TableInvoice tbody tr td:first-child{
+  font-size: .4rem;
+}
+
+.inputQuantity{
+  width: 3rem;
+  border: #046780 1px solid !important;
+
+}
+.svgDelete{
+  display:flex;
+  border: #046780 1px solid ;
+  padding: 5px;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 5px;
+  
+}
+.svgDelete svg{
+  color: #ff0101;
+  
+  
+}
+.svgDelete:hover{
+  border: #ee0909cc 1px solid ;
+  color: #fff;
+  box-shadow: #ee0909cc 0px 0px 5px 1px ;
+}
