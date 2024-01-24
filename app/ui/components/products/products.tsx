@@ -1,9 +1,11 @@
+'use client'
 import styles from './products.module.css'
 import { Button } from '../../buttons/button'
-import { Input } from '../../inputs/input'
+import { Input, InputMounth } from '../../inputs/input'
 import {IProductEdit} from '@/app/services/interfaces/product'
 import Select from '../../selects/select'
 import { FormatMoneda } from '../../formatToMoneda/fornatMoneda'
+import CurrencyInput from 'react-currency-input-field'
 export const Products=()=>{
   return(
     <section className={styles.products}>  
@@ -27,8 +29,8 @@ export const CreateProductPage=(
       <Select options={categories} error=''>{}</Select>
       <Input required name='name' type='text'  >Nombre</Input>
       <Input required name='description'  type='text'>Descripción</Input>
-      <Input required name='price' type='number'>Precio</Input>
-      <Input required name='stock' type='number'>Cantidad</Input>
+      <InputMounth name='price' >Precio</InputMounth>
+       <Input required name='stock' type='number'>Cantidad</Input>
      
       <Button typeof='submit'>Crear</Button>
       

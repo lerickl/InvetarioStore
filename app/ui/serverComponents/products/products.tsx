@@ -31,7 +31,7 @@ export const SearchProductBCTotalPages=(async(query: string)=>{
  
 export const createProduct = async(formData:FormData)=>{
   'use server'
-  
+
   const FormSchema=z.object({
     id: z.string().uuid(),
     barcode: z.string().min(1),
@@ -39,7 +39,7 @@ export const createProduct = async(formData:FormData)=>{
     created_at: z.date(),
     description: z.string().min(1),
     name: z.string().min(1),
-    price: z.number(),
+    price: z.string(),
     stock: z.number(),
     urlimage: z.string().url(),
   })
@@ -51,13 +51,12 @@ export const createProduct = async(formData:FormData)=>{
       category: formData.get('category') as string, 
       description: formData.get('description') as string,
       name: formData.get('name') as string,  
-      price: Number(formData.get('price')),
+      price: formData.get('price')?.toString().replace(",","."),
       stock: Number(formData.get('stock')), 
     })
-  
+   
+  const response = await addProduct({barcode, category, description, name, price: Number(price), stock});
 
-  const response =  await addProduct({barcode, category, description, name, price, stock})
- 
   revalidatePath('/dashboard/store')
   redirect('/dashboard/store')
 }
@@ -78,7 +77,7 @@ export const EditProduct = async(formData:FormData)=>{
   })
  
   const createFormProduct= FormSchema.omit({created_at: true, urlimage: true})
-
+  console.log(formData.get('id'))
   const {id, barcode, category, description, name, price, stock} = createFormProduct.parse({
       id: formData.get('id') as string,
       barcode: formData.get('barcode') as string,
@@ -89,7 +88,8 @@ export const EditProduct = async(formData:FormData)=>{
       stock: Number(formData.get('stock')), 
     })
   
-
+    console.log(price)
+    console.log(description)
   const response =  await updateProduct({id,barcode, category, description, name, price, stock} )
   revalidatePath('/dashboard/store')
   redirect('/dashboard/store')

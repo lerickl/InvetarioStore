@@ -30,3 +30,24 @@ export const InputSearch=({children, ...props}:InputProps)=>{
     </div>
   )
 }
+
+import CurrencyInput from 'react-currency-input-field'
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
+  name:string,
+}
+export const InputMounth=({children, name}:Props)=>{
+  return (
+    <div className={styles.inputContainer}>
+        <CurrencyInput id='inputCurrency'
+        className='{styles.inputQuantity} '
+        prefix='S/.'
+        decimalSeparator=","
+        groupSeparator="."
+        type='text'
+        name={name} required  />
+        <label htmlFor='inputCurrency'>
+          <span >{children} </span>
+        </label>
+    </div>
+  )
+}

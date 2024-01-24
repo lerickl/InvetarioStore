@@ -63,6 +63,7 @@ export async function fetchProductTotalPages(query:string){
 
 export async function addProduct(Data:Database['public']['Tables']['products']['Insert']){
   try{
+    
     const {data, error}= await supabaseClient.
     from('products').
     insert(Data)
