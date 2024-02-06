@@ -19,7 +19,7 @@ export const TableInvoice = ({ Invoice, paywith}:Props) => {
     const updateInvoiceItem = [...invoice];
     const newQuantity = event.target.value
     updateInvoiceItem[index].quantity = Number(newQuantity)
-    updateInvoiceItem[index].subTotal = Number(newQuantity) * Number(updateInvoiceItem[index].price)
+    updateInvoiceItem[index].subtotal = (Number(newQuantity) * Number(updateInvoiceItem[index].price)).toString()
     setInvoice(updateInvoiceItem)
   } 
   const handlerDeleteItem = (index:number) => {
@@ -32,7 +32,7 @@ export const TableInvoice = ({ Invoice, paywith}:Props) => {
     paywith(paidWith.toString())
   }, [paidWith,total])
   useEffect(() => {
-    setTotal(invoice.reduce((acc, item) => acc + item.subTotal!, 0))
+    setTotal(invoice.reduce((acc, item) => acc + Number(item.subtotal!), 0))
   }, [invoice])
   useEffect(() => {
     setInvoice(Invoice)
@@ -69,7 +69,7 @@ export const TableInvoice = ({ Invoice, paywith}:Props) => {
                   />
                 </span>
               </td>
-              <td><FormatMoneda format={product.subTotal!}/></td>
+              <td><FormatMoneda format={Number(product.subtotal!)}/></td>
               <td><span onClick={() => handlerDeleteItem(index)} className={styles.svgDelete}><DeleteIcon/></span></td>
             </tr>
           ))
