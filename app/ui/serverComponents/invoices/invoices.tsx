@@ -26,7 +26,7 @@ import { IDataInvoiceInsert } from '@/app/services/interfaces/dataInvoice'
 export const AddInvoiceView = async({invoiceView}:{invoiceView:IInvoiceView}) => {
   'use server'
   console.log(invoiceView)
-  let total = invoiceView.products.reduce((acc, item) => acc + item.subTotal!, 0)
+  let total = invoiceView.products.reduce((acc, item) => acc + Number(item.subtotal)!, 0)
   let customer:ICustomer = {
     name:invoiceView.name,     
     dni:invoiceView.dni,
