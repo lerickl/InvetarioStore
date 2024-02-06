@@ -1,6 +1,8 @@
 import {FormProduct} from '@/app/ui/products/createformProducts'
 import { Breadcrumbs } from '@/app/ui/breadcrumbs/breadcrumbs'
 import { raleway } from '@/app/ui/fonts'
+import { SelectSearchProduct } from '@/app/ui/serverComponents/products/products'
+
 export default async function Page() {  
   return (   
     <main className={raleway.className}>
@@ -18,7 +20,7 @@ export default async function Page() {
       ]}
       />
 
-      <FormProduct  />
+      <FormProduct  searchSelected={SelectSearchProduct} />
     </main>
  )
 }

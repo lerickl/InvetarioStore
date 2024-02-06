@@ -1,9 +1,11 @@
+ 
 import {raleway} from "@/app/ui/fonts"
 import {CreateInvoice} from "@/app/ui/components/sales/create/createInvoice";
 import { Breadcrumbs } from "@/app/ui/breadcrumbs/breadcrumbs"
 import {  AddInvoiceAndDetails } from '@/app/ui/serverComponents/invoices/invoices'
-
-export default async function Page() {
+import { SelectSearchProduct, SearchProductoBarcode } from '@/app/ui/serverComponents/products/products'
+import { AddInvoiceView } from '@/app/ui/serverComponents/invoices/invoices'
+export default function Page() {
   return (
     <main className={raleway.className}>
       <Breadcrumbs
@@ -19,7 +21,7 @@ export default async function Page() {
       ]}
       />
       
-      <CreateInvoice accion={AddInvoiceAndDetails}/>
+      <CreateInvoice addinvoiceView={AddInvoiceView} accion={AddInvoiceAndDetails}  selectProduct={SelectSearchProduct} SearchProductoBarcode={SearchProductoBarcode}/>
     </main>
   );
 }

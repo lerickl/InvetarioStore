@@ -1,8 +1,23 @@
 import {Invoice} from '../../ui/components/sales/invoice'
 import Link from 'next/link'
+import {AllInvoices, SearchInvoiceTotalPages} from '@/app/ui/serverComponents/invoices/invoices'
+import { Suspense } from 'react'
 import { ButtonAdd } from '@/app/ui/buttons/buttonAdd'
 import { Breadcrumbs } from '@/app/ui/breadcrumbs/breadcrumbs'
-export default function Page() {
+import { TableInvoice } from '@/app/ui/tables/tableInvoice'
+import Pagination from '@/app/ui/components/products/paginationProducts';
+export default async function Page({
+  searchParams
+}: {
+  searchParams?: {
+    query?: string,
+    page?: string,
+  };
+}) {
+  const query = searchParams?.query || ''
+  const currentPage = Number(searchParams?.page) || 1 
+  const totalPages= await SearchInvoiceTotalPages({query})
+  const invoices = await AllInvoices()
   return (
    <main>
       <Breadcrumbs
@@ -22,8 +37,13 @@ export default function Page() {
         </Link>
       </section>
       <section>
-        <Invoice/>
+      
+          <Invoice Invoices={invoices} />
+          {/* <TableInvoice Invoices={invoices}/> */}
+   
+      <Pagination totalPages={totalPages}/>
       </section>
+  
    </main>
   )
 }

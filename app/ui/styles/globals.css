@@ -8,6 +8,9 @@
   --background-end-rgb: 255, 255, 255;
   --color-Primary: #046780;
   --color-box-shadow:#0cd8f3c9;
+  --primary-color: #046780;
+  --position-x:0;
+  --position-y:0;
 }
 
 @media (prefers-color-scheme: dark) {

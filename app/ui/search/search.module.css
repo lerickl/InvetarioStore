@@ -19,3 +19,135 @@
 .input:focus{
   background-color: rgba(255,255,255,1);
 }
+
+
+.contentSearch{
+  display: flex;  
+  position: absolute;
+  z-index: 100 !important;
+  background-color: rgba(0, 0, 0, 0.5);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  color:#fff;
+  box-shadow: #000000 0px 0px 10px 0px;
+  width: 300px;
+  transform: translateY(-10px);  
+  border-radius: 5px;
+}
+.section{
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 1rem; 
+  border-radius: 5px;
+  box-shadow: var(--color-box-shadow) 0px 0px 10px 0px;
+}
+.listProducts a{
+  margin-top:3px;
+  margin-bottom: 3px;
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  justify-content: space-between;
+  width: 280px !important;
+  display: grid;
+  grid-template-columns: 70% 30%;
+
+}
+ 
+.listProducts a:hover{
+  background-color: rgba(255,255,255,.5);
+  box-shadow: -1px 0px 5px 2px rgb(0, 204, 255);
+  
+  color: #000000;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+ 
+}
+.listProducts p{
+  padding: 2px;
+  margin: 5px;
+}
+ 
+ 
+@media screen and (max-width: 768px){
+  .contentSearch{
+    max-width: 250px ;
+  
+  }
+  .listProducts a{
+    width: 240px !important;
+  }
+ 
+
+}
+
+.sectionSearch{
+  z-index: 100 !important;
+  position: relative;
+  z-index: 100 !important;
+  grid-column: 1 / -1; 
+  display: grid; 
+  overflow: none  !important;
+ 
+}
+.contentSearchProduct
+{
+  position: absolute;
+ 
+  background-color: rgba(0, 0, 0, 0.5);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  color:#fff;
+  box-shadow: #000000 0px 0px 10px 0px;
+
+  transform: translateY(-10px);  
+  border-radius: 5px;
+}
+ 
+ 
+.listProductssearch a{
+  margin-top:3px;
+  margin-bottom: 3px;
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  justify-content: space-between;
+  width: 350px !important;
+  display: grid;
+  grid-template-columns: 50% 20% 30%;
+
+}
+.listProductssearch p{
+  padding: 2px;
+  margin: 5px;
+}
+.listProductssearch a:hover{
+  background-color: rgba(255,255,255,.5);
+  box-shadow: -1px 0px 5px 2px rgb(0, 204, 255); 
+  color: #000000;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+ 
+}
+@media screen and (max-width: 768px){
+  .contentSearchProduct{
+    max-width: 350px ;
+  
+  }
+  .listProductssearch a{
+    width: 345px !important;
+  }
+ 
+
+}

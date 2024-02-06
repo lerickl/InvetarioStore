@@ -23,6 +23,6 @@ export const useSearchProducts = () => {
     }
 
   }, [])
-  
+   
   return {getProducts, products}
 }

@@ -1,0 +1,14 @@
+.section{
+    padding:1rem;
+    border-bottom: 1px solid #ccc;
+    display: grid;
+    grid-template-columns:repeat(
+        auto-fit,
+        minmax(150px,1fr)
+    );
+    grid-gap: 1rem;
+    
+    background-color: #ffffffb4;
+    width: 100%;
+
+}

@@ -1,3 +1,4 @@
+ 
 import { SearchIcon } from '../assets/icons'
 import styles from './inputs.module.css'
 
@@ -34,8 +35,9 @@ export const InputSearch=({children, ...props}:InputProps)=>{
 import CurrencyInput from 'react-currency-input-field'
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   name:string,
+  defaultValue?:string,
 }
-export const InputMounth=({children, name}:Props)=>{
+export const InputMounth=({children, name, defaultValue}:Props)=>{
   return (
     <div className={styles.inputContainer}>
         <CurrencyInput id='inputCurrency'
@@ -43,6 +45,7 @@ export const InputMounth=({children, name}:Props)=>{
         prefix='S/.'
         decimalSeparator=","
         groupSeparator="."
+        defaultValue={ defaultValue || ''}
         type='text'
         name={name} required  />
         <label htmlFor='inputCurrency'>

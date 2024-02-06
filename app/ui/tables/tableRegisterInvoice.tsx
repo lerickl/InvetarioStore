@@ -1,17 +1,15 @@
 import styles from './tables.module.css'
 import {IDataInvoice} from '../../services/interfaces/dataInvoice'
 import { BarcodeIcon,DeleteIcon } from '../assets/icons'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import CurrencyInput from 'react-currency-input-field'
- 
-import { Database } from '@/app/services/database.types'
- 
+import React from 'react'
 import { FormatMoneda } from '../formatToMoneda/fornatMoneda'
 interface Props {
-  accion?: ({ AllDataInvoices }: {AllDataInvoices: Array<Database['public']['Tables']['DataInvoice']['Insert']>})=>Promise<void>,
   Invoice:Array<IDataInvoice>
+  paywith:Dispatch<SetStateAction<string>>
 }
-export const TableInvoice = ({ Invoice, accion}:Props) => {
+export const TableInvoice = ({ Invoice, paywith}:Props) => {
 
   const [invoice, setInvoice] = useState<Array<IDataInvoice>>(Invoice)
   const [total, setTotal] = useState(0)
@@ -24,8 +22,14 @@ export const TableInvoice = ({ Invoice, accion}:Props) => {
     updateInvoiceItem[index].subTotal = Number(newQuantity) * Number(updateInvoiceItem[index].price)
     setInvoice(updateInvoiceItem)
   } 
+  const handlerDeleteItem = (index:number) => {
+    const updateInvoiceItem = [...invoice];
+    updateInvoiceItem.splice(index, 1);
+    setInvoice(updateInvoiceItem)
+  }
   useEffect(() => {
     setReturnPaid(Number(paidWith)-total)
+    paywith(paidWith.toString())
   }, [paidWith,total])
   useEffect(() => {
     setTotal(invoice.reduce((acc, item) => acc + item.subTotal!, 0))
@@ -66,7 +70,7 @@ export const TableInvoice = ({ Invoice, accion}:Props) => {
                 </span>
               </td>
               <td><FormatMoneda format={product.subTotal!}/></td>
-              <td><span className={styles.svgDelete}><DeleteIcon/></span></td>
+              <td><span onClick={() => handlerDeleteItem(index)} className={styles.svgDelete}><DeleteIcon/></span></td>
             </tr>
           ))
         }

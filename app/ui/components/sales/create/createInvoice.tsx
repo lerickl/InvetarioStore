@@ -1,46 +1,46 @@
 'use client'
 import styles from './createinvoice.module.css'
-import { CheckboxSearch } from "@/app/ui/checkboxs/checkboxSearch"
-import { useState, useEffect, SetStateAction, useCallback, HtmlHTMLAttributes } from 'react'
+ 
+import { useState, useEffect } from 'react'
 import {useSearchProducts} from '@/app/hocks/useProductsSearch'
 import { useAddDataInvoice } from '@/app/hocks/invoices/useInvoice'
 import { TableInvoice } from '@/app/ui/tables/tableRegisterInvoice'
-// import { useSearchParams, usePathname, useRouter } from 'next/navigation'
-// import {  SearchProduct } from '@/app/ui/serverComponents/products/products'
-import { Database } from '@/app/services/database.types'
-import { HtmlProps } from 'next/dist/shared/lib/html-context.shared-runtime'
+ 
 import { DataInvoice } from '@/app/services/interfaces/invoice'
-interface Props extends React.HTMLAttributes<HtmlProps> {
-  accion?: ({ AllDataInvoices }: {
-    AllDataInvoices: Array<DataInvoice>;
-}) => Promise<void>
-   
+import { FomrtCustomers } from '@/app/ui/customers/formCreateCustomers'
+import {SearchProduct} from '@/app/ui/inputs/inputSearch'
+import {SearchSelected} from '@/app/ui/search/searchSelector'
+import { IProduct } from '@/app/services/interfaces/product'
+ 
+import { IInvoiceView } from '@/app/services/interfaces/invoiceView.types'
+import { ButtonRipple } from '@/app/ui/buttons/buttonRipple'
+ 
+interface Props   {
+  accion?: ({ AllDataInvoices }: {AllDataInvoices: Array<DataInvoice>}) => Promise<void>;
+  selectProduct?: (query: string) => Promise<Array<IProduct>>;
+  SearchProductoBarcode?: (barcode: string) => Promise<IProduct>;
+  addinvoiceView?:({ invoiceView }: {
+    invoiceView: IInvoiceView
+  }) => Promise<null[]>
+  
 }
  
-export function CreateInvoice({children, accion }:Props){
-  // const searchparams= useSearchParams()
-  // const pathname= usePathname()
-  // const {replace} = useRouter()
-  const [checkedSearch, setCheckedSearch] = useState(false)
+export function CreateInvoice({ accion, selectProduct,SearchProductoBarcode, addinvoiceView }:Props){
+ 
+  
   const [searchBarcode, setSearchBarcode] = useState('')
   const {products, getProducts } = useSearchProducts()
-  const {invoice, addProduct} = useAddDataInvoice()
-  const [producto, setProducto] = useState<Array<Database['public']['Tables']['products']['Row']>>()
-  const onFocusState = () => {
-    setCheckedSearch(!checkedSearch)
+  const {invoice, addProduct} = useAddDataInvoice()  
+  
+  const DataSearch = (DatosSearch:IProduct)=>{
+    addProduct(DatosSearch)
   }
-  const handlerChange=(event: { target: { value: SetStateAction<string> } })=>{
-   
-    setSearchBarcode(event.target.value)
-      
-  }
- 
+
 
   useEffect(() => {
    
     const delayDebounceFn = setTimeout(() => {
       if (searchBarcode) {
-        console.log(searchBarcode);
         setSearchBarcode(searchBarcode)
         // 
         getProducts(searchBarcode) 
@@ -60,24 +60,48 @@ export function CreateInvoice({children, accion }:Props){
       
     }
   }, [products])
+  const [name, setName] = useState('')
+  const [direccion, setDireccion] = useState('')
+  const [dni, setDni] = useState('')
+  const [paywith, setPaywith] = useState('')
+
+  const saveInvoice =  () => {
+    if(invoice.length === 0){
+      console.log('no hay productos')
+      return
+    }
+    const invoiceView:IInvoiceView = {
+      name,
+      direccion,
+      dni, 
+      paywith,
+      products: invoice,
+    }
+    if(addinvoiceView){
+      const response =   addinvoiceView({invoiceView:invoiceView}) 
+      console.log('response addinvoice'+response)
+    }
+   
+  }
   return (
 
     <section className={styles.CreateInvoice} >
-      <div className={styles.search}>
-        <input 
-        className={`${checkedSearch? styles.inputActive : ''}`}
-        title="search"
-        onChange={handlerChange}
-        value={searchBarcode}
-        onFocus={onFocusState}
-        onBlur={onFocusState}
-        
-        />
-        <CheckboxSearch readOnly checked={checkedSearch}/>
-      </div>
-      <TableInvoice Invoice={invoice} accion={accion}/>
+      <SearchSelected selectProduct={selectProduct} producto={DataSearch} >
+      Buscar Producto
+      </SearchSelected>
  
-      
+      <SearchProduct placeholder='Buscar Producto' 
+              producto={DataSearch} 
+              SearchProductoBarcode={SearchProductoBarcode}
+      ></SearchProduct>
+       
+    
+      <TableInvoice Invoice={invoice} paywith={setPaywith}  />
+      <FomrtCustomers name={name} direccion={direccion} dni={dni} />
+      <div>
+        <ButtonRipple onClick={ saveInvoice}>Guardar Venta</ButtonRipple>
+  
+      </div>
     </section>
   )
 

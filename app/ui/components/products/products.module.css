@@ -20,31 +20,51 @@
 
 
 .CreateProductPage{
-    display: flex;   
- 
-    overflow: hidden;
+    display: flex;    
+    flex-direction: column;
     box-shadow: 0px 0px 5px 1px var(--color-box-shadow);
     background: rgba(255, 255, 255, 0.8);
     justify-content: center;
     margin: 5px;
+    z-index: 1;
+    
  
+}
+.divName{
+    
+    padding: 1rem;
+}
+.label{
+    padding: .5rem;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+}
+.labelactive{
+    background-color: #0bff03;
+}
+.labeldesactive{
+    background-color: #ff0000;
+
 }
 .formPage{
     width: 100%;
     display: grid;
+    justify-content: center; 
+    grid-template-columns: 1fr 1fr 1fr; 
     justify-content: center;
- 
-    grid-template-columns: 1fr 1fr 1fr;
-    
-
     gap: 1rem;
     border-radius: 5px;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     padding: 1rem;
+    align-items: center;
     
 }
  
+.formPage button{
+    grid-column: 1/-1;
+}
 
  
 @media screen and (max-width: 768px){
@@ -58,21 +78,61 @@
  
 
 .paginationFirst{
-    border:0.25rem
+    border:0.25rem;
 }
 .paginationLast{
-    border:0.35rem
+    border:0.35rem;
+ 
 }
-.paginationMiddle{}
+ 
 .paginationSingle{
-    border:0.25rem
+    border:0.25rem;
+   
 }
 .paginationIsActive{
+    padding: .2rem;
     z-index: 10;
-    background: blue;
-    border: 0.25rem solid blue;
+    background: #a7babb;
+    border: 1px solid transparent;   
+    box-shadow: 0px 0px 5px 1px var(--color-Primary);
     color: white;
+    width: 30px;
+    text-align: center;
+    margin: .2rem;
+    border-radius: 5px;
 }
+.paginationDisabled{
+    border-radius: 5px;
+    padding: .2rem;
+    width: 30px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0px 0px 5px 1px var(--color-Primary);
+    text-align: center;
+    margin: .2rem;
+}
+
 .paginationIsActive:hover{
-    background: gray;
+    background: rgb(0, 136, 247);
+    box-shadow: 0px 0px 5px 1px var(--color-box-shadow);
+
+}
+
+.searchSelected{
+    padding: 0.2rem;
+    
+    grid-area: 1/-1;
+    display: grid;
+}
+.paginationLeft {
+    padding: 5px;
+    
+}
+.paginationRight {
+    padding: 5px;
+}
+.contentPages{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
 }

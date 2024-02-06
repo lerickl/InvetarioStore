@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { generatePagination } from '@/.lib/utils';
 import { usePathname, useSearchParams } from 'next/navigation';
 import styles from './products.module.css'
+import { ArrowLeftIcon, ArrowRightIcon } from '../../assets/icons';
 export default function Pagination({ totalPages }: { totalPages: number }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -31,7 +32,7 @@ export default function Pagination({ totalPages }: { totalPages: number }) {
           isDisabled={currentPage <= 1}
         />
 
-        <div className="flex -space-x-px">
+        <div className={styles.contentPages}>
           {allPages.map((page, index) => {
             let position: 'first' | 'last' | 'single' | 'middle' | undefined;
 
@@ -78,19 +79,9 @@ function PaginationNumber({
   const className = 
   (
     position === 'first' || position === 'single' ? styles.paginationFirst : styles.paginationLast,
-    !isActive? styles.paginationIsActive :  ''  
+    !isActive? styles.paginationIsActive :  styles.paginationDisabled 
   )
-  
-  //  clsx(
-  //   'flex h-10 w-10 items-center justify-center text-sm border',
-  //   {
-  //     'rounded-l-md': position === 'first' || position === 'single',
-  //     'rounded-r-md': position === 'last' || position === 'single',
-  //     'z-10 bg-blue-600 border-blue-600 text-white': isActive,
-  //     'hover:bg-gray-100': !isActive && position !== 'middle',
-  //     'text-gray-300': position === 'middle',
-  //   },
-  // );
+ 
 
   return isActive || position === 'middle' ? (
     <div className={className}>{page}</div>
@@ -113,23 +104,15 @@ function PaginationArrow({
   const className = 
   (
     direction === 'left' ? styles.paginationLeft : styles.paginationRight,
-    isDisabled? styles.paginationDisabled :  ''  
+    isDisabled? styles.paginationDisabled :  styles.paginationIsActive 
   )
-  // clsx(
-  //   'flex h-10 w-10 items-center justify-center rounded-md border',
-  //   {
-  //     'pointer-events-none text-gray-300': isDisabled,
-  //     'hover:bg-gray-100': !isDisabled,
-  //     'mr-2 md:mr-4': direction === 'left',
-  //     'ml-2 md:ml-4': direction === 'right',
-  //   },
-  // );
-
+ 
+  
   const icon =
     direction === 'left' ? (
-      <span>{'<'}</span>
+      <span><ArrowLeftIcon/></span>
     ) : (
-      <span>{'>'}</span>
+      <span><ArrowRightIcon/></span>
     );
 
   return isDisabled ? (

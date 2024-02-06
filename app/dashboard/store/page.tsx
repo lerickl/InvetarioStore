@@ -1,6 +1,5 @@
 
 import { Suspense } from 'react'
-import {Products} from '../../ui/components/products/products'
 import TableProducts from '../../ui/tables/tableProducts'
 import {SearchData} from '../../ui/search/SearchData'
 import { SearchProductBCTotalPages } from '@/app/ui/serverComponents/products/products';
@@ -10,6 +9,7 @@ import { PlusIcon } from '@/app/ui/assets/icons';
 import Link from 'next/link';
 import { raleway } from '@/app/ui/fonts'
 import { Breadcrumbs } from '@/app/ui/breadcrumbs/breadcrumbs';
+
 export default async function Page(
   {searchParams}:
    {searchParams?: {
@@ -46,3 +46,4 @@ export default async function Page(
     </main>
   )
 }
+

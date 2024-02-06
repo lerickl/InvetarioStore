@@ -1,5 +1,6 @@
 import {FormEditProduct} from "@/app/ui/products/editProducts"
 import { Breadcrumbs } from '@/app/ui/breadcrumbs/breadcrumbs'
+import { SelectSearchProduct } from '@/app/ui/serverComponents/products/products'
 export default async function page(
   {params}:{params:{id:string}}) {
   const id=params.id
@@ -18,7 +19,7 @@ export default async function page(
         
       ]}
       />
-      <FormEditProduct id={id}/>
+      <FormEditProduct id={id}  searchSelected={SelectSearchProduct}/>
     </main>
   )
   

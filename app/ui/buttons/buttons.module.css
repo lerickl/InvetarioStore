@@ -247,3 +247,75 @@
   box-shadow: #be1104 0px 0px 5px 1px ;
   background: rgba(235, 13, 13, 0.2);
 }
+
+
+
+
+
+
+
+
+
+
+
+.DeleteContentProduct {
+  display: flex; 
+  flex-direction: row;
+  justify-content: left;
+  align-items: center; 
+  width: -moz-fit-content;
+  width: fit-content; 
+  border-radius: 5px;
+  margin-top: 1rem; 
+  font-weight: 700; 
+  overflow: hidden;
+  border: #fff solid 1px;
+  
+ 
+}
+.DeleteContentProduct:hover{
+  box-shadow: #00bae9  0px 0px 10px 0px ;
+  border: #00bae9 solid 1px;
+}
+.DeleteContentProduct button { 
+  display: flex;
+  position: relative;
+  background-color: #00bae9;
+  border:none;
+  padding: .5rem; 
+  font-weight: 900;
+  color: #ffffff;
+  border-radius: 5px; 
+} 
+.DeleteContentProduct button:hover {
+
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+    
+}
+.DeleteContentProduct button:active {
+  background-color: rgb(255, 255, 255);
+  color: #098ecc;
+}
+.DeleteContentProduct:active   { 
+  box-shadow: #4ae900  0px 0px 10px 0px ;
+  border: #4ae900 solid 1px;
+ 
+}
+
+@keyframes ripole{
+  0%{
+    width: 0;
+    height: 0;
+  }80%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+
+

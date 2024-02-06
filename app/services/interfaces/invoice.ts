@@ -1,9 +1,8 @@
 export interface IInvoice {
-  id: string,
+  id?: string,
   customer_id: string,
   amount: number,
   status: 'pending' | 'paid',
-  date: string, 
 }
 
 
@@ -21,4 +20,5 @@ export interface DataInvoice {
   id_product?: string | null
   name_product?: string | null
   quantity?: number | null
+  subtotal?: string | null
 }

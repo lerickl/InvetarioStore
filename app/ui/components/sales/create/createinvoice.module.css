@@ -11,28 +11,10 @@
   padding: 5px;
   border-radius: 5px;
 }
-.CreateInvoice div:first-child{
-  box-shadow: #046780 0px 0px 5px 1px ;
-  padding: 10px;
-}
+ 
 .inputActive{
  
   outline-color: rgb(2, 255, .2);
-}
-.CreateInvoice div input{
-  margin-right: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ff0101;
-  padding: 5px;
-  text-align: center;
- 
-  background-color: rgba(255, 0, 0, 0.1);
-  
-}
-.CreateInvoice div input:focus{
-  background-color: rgb(255, 255, 255);
- 
-  
 }
 
 

@@ -11,6 +11,15 @@ export const getAllInvoices = async () => {
     throw new Error()
   }
 }
+export const getInvoiceById = async (id: string) => {
+  type Invoice = Database['public']['Tables']['invoices']['Row']
+  try{
+    const { data, error } = await supabaseClient.from('invoices').select('*').eq('id', id)
+    return data as Array<Invoice>
+  }catch(e){
+    throw new Error()
+  }
+}
 export const getInvoicesCount = async () => {
   const { data:invoices, error } = await supabaseClient.from('invoices').select(`*`)
   try{
@@ -43,11 +52,13 @@ export const getinvoiceStatusPromise = async () => {
 }
 
 export const AddInvoice = async (invoice: Database['public']['Tables']['invoices']['Insert']) => {
-  const { data, error } = await supabaseClient.from('invoices').insert([invoice]).select()
+ 
+  const { data, error } = await supabaseClient.from('invoices').insert(invoice).select()
   try{ 
+   
     return data?.[0]
   }catch(e){
-    throw new Error()
+    throw new Error(error?.message)
   }
 }
 
@@ -58,5 +69,32 @@ export const DeleteInvoice = async (id: string) => {
     return data
   }catch(e){
     throw new Error()
+  }
+}
+
+
+export async function SearchInvoice(
+  query: string,
+  currentPage: number,
+) {
+  const itemsPerPage = Number(10)
+  const offset = (currentPage - 1) * itemsPerPage
+  try {
+    const { data, error } = await supabaseClient.from('invoices').select('*').ilike('name', `%${query}%`).range(offset, offset + itemsPerPage - 1)
+    return data as Array<Database['public']['Tables']['invoices']['Row']>
+  } catch (err) {
+    throw err
+  }
+}
+export async function fetchInvoiceTotalPages(query: string) {
+  const itemsPerPage = Number(10)
+  try {
+    const { data, error } = await supabaseClient.from('invoices').select('*').ilike('customer_id', `%${query}%`)
+    const invoices = data as Array<Database['public']['Tables']['invoices']['Row']>
+    const totalPages = Math.ceil(invoices.length / itemsPerPage)
+
+    return totalPages
+  } catch (err) {
+    throw err
   }
 }

@@ -242,6 +242,7 @@
   width: 100%;
   padding: 5px;
   border-radius: 5px;
+  position: relative;
 }
 .itemsTable{
   display: flex;
@@ -404,7 +405,7 @@
   .itemsTable td:nth-of-type(2):before { content: "Monto"; }
   .itemsTable td:nth-of-type(3):before { content: "Fecha"; }
   .itemsTable td:nth-of-type(4):before { content: "Estado"; }
- 
+  .itemsTable td:nth-of-type(5):before { content: "Accion"; }
 
 }
 
@@ -891,7 +892,6 @@
   display: flex;
   justify-content: center;
 }
-
 
 
 

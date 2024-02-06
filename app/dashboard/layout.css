@@ -83,9 +83,7 @@
   box-shadow: 0px 0px 5px 0px rgba(241, 3, 170, 0.75);
   border-radius: 5px;
   overflow: hidden;
-
  
-
    
 }
 .grid:first-child{
@@ -101,12 +99,12 @@
   align-items: center;
   flex-direction: column;
  
- 
- 
 }
 .grid:nth-child(2) main{
   width: 100%;
   padding: 10px;
+  z-index: 0;
+ 
   
  
 }
