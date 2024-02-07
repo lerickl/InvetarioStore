@@ -7,6 +7,7 @@ import { redirect } from 'next/navigation'
 import {ICustomer} from '@/app/services/interfaces/customer'
 export const AllInvoices = async()=>{
   'use server'
+  revalidatePath('/dashboard/sales')
   const response = await getAllInvoices();
   return response
 }

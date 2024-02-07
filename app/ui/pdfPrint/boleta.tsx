@@ -3,7 +3,7 @@ import { IDataInvoice } from '@/app/services/interfaces/dataInvoice'
 import { IInvoiceViewPDF } from '@/app/services/interfaces/invoiceView.types'
 import { Page, Text, View, Document, StyleSheet,  } from '@react-pdf/renderer'
 import {  useEffect, useState } from 'react'
-import { FormatMoneda } from '../formatToMoneda/fornatMoneda'
+import { FormatMoneda } from '../formatToMoneda/fornatMoneda' 
 const styles = StyleSheet.create({
   page: {
     fontSize: 8,
@@ -17,13 +17,13 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     textAlign: 'center',
     justifyContent: 'center',
-    margin: 10,
+    margin: 2,
     padding: 10,
     flexGrow: 1,
     width: '100%',
   },
   text:{
-    fontSize: 12,
+    fontSize: 16,
     fontWeight: 'bold',
 
   },
@@ -36,47 +36,43 @@ const styles = StyleSheet.create({
     flexGrow: 1
   },
   DataBoletaPaid:{
-    marginTop: 10, 
+    marginTop: 5, 
   },
   contentTable:{
     display: 'flex',
     flexDirection: 'column',
-    textAlign: 'center',
-    margin: 10,
-    padding: 10,
-    flexGrow: 1, 
+    textAlign: 'center', 
+    padding: 5, 
     width: '100%',
   },
-  table: {  
-    border: '1px solid #000',
+  table: {    
     flexDirection: 'column',
     width: '100%',
   },
   tableRow: {
     flexDirection: 'row',
   },
-  tableColHeadCantidad: {
-  
-    border: '1px solid #000',
+  tableRowHead: {
+    flexDirection: 'row',
+
+  },
+  tableColHeadCantidad: {  
     flexDirection: 'column',
     width: '20',
     height:'100%',
+
   },
   tableColHeadNombre: {
-  
-    border: '1px solid #000',
     flexDirection: 'column',
     width: '60',
   },
   tableColHeadPrecio: {
   
-    border: '1px solid #000',
     flexDirection: 'column',
     width: '40',
   },
   tableColHeadSubtotal: {
   
-    border: '1px solid #000',
     flexDirection: 'column',
     width: '40',
   },
@@ -104,22 +100,48 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   tableCell: {
-    margin: 5,
-    fontSize: 6,
+    margin: 1,
+    fontSize: 8,
+    overflow: 'hidden',
+  },
+  tablecellHead: {
+    margin: 1,
+    fontSize: 8,
+    fontWeight: 'bold',
+    overflow: 'hidden',
+  },
+  tableCellbody: {
+    margin: 1,
+    fontSize: 10,
     overflow: 'hidden',
   },
   contentTotal:{
     display: 'flex',
-    flexDirection: 'column',
-    textAlign: 'center',
-    margin: 10,
-    padding: 10,
+    position: 'relative',
+    flexDirection: 'row', 
+    justifyContent: 'space-between',
+    marginRight: 15,
+    marginLeft: 15,
+    padding: 10, 
     flexGrow: 1, 
+    fontSize: 10,
+    width: '100%',
+    
+  },
+  contentQuantity:{
+    display: 'flex',
+    position: 'relative',
+    flexDirection: 'row', 
+    justifyContent: 'flex-start', 
+     
+    padding: 10, 
+    flexGrow: 1, 
+    fontSize: 8,
     width: '100%',
   },
+ 
   tableColHeadPaidWith: {
   
-    border: '1px solid #000',
     flexDirection: 'column',
     width: '50%',
   },
@@ -131,6 +153,14 @@ const styles = StyleSheet.create({
   marginBoleta:{
     marginTop: 10,
     marginBottom: 10,
+    width: '100%',
+    height: 30,
+    display: 'flex',
+    textAlign: 'center',
+  },
+  marginBoletabody:{
+    marginTop: 2,
+    marginBottom: 2,
     width: '100%',
     height: 30,
     display: 'flex',
@@ -147,6 +177,8 @@ export const BoletaPDF = ({dataInvoiceView}:Props)=> {
   const [Total, setTotal] = useState(0)
   const [payWith, setPayWith] = useState(0)
   const [change, setChange] = useState(0)
+  const [countProducts, setCountProducts] = useState(0)
+  const [loading , setLoading] = useState(true)
  useEffect(() => {
   if(dataInvoiceView){
     const Invoice: IDataInvoice[] = dataInvoiceView.products!.map((product) => {
@@ -160,6 +192,8 @@ export const BoletaPDF = ({dataInvoiceView}:Props)=> {
       };
     }); 
     const Total = Invoice.reduce((total, data) => total + Number(data.subtotal)!, 0);
+    const countProducts = Invoice.reduce((count, data) => count + Number(data.quantity)!, 0);
+    setCountProducts(countProducts)
     setDataInvoice(Invoice)
     setTotal(Total)
     setPayWith(Number(dataInvoiceView.paywith)!)
@@ -167,37 +201,46 @@ export const BoletaPDF = ({dataInvoiceView}:Props)=> {
     setChange(Number(change)!)
     console.log('dataInvoice',Invoice)
   }
+  setLoading(false)
  }, [dataInvoiceView])
-  
+ const options = {timeZone: 'America/Lima'}
+ const date = new Date().toLocaleString('es-PE', options)
 return(
-  <Document  >
+  <>
+  {loading ? <div>loading</div> :
+    <Document  >
     <Page size="B8" style={styles.page}>
       <View style={styles.marginBoleta}>
           <Text>_______________________________</Text>
       </View>
       <View style={styles.section}>
         <Text style={styles.text}>Dulce como tu </Text> 
-        <Text>jr leguia 813- cajamarca peru</Text> 
-        <Text>Fecha: 12/12/2020</Text>
-        
+        <Text>Jr leguia 813 - cajamarca peru</Text> 
+        <Text>Fecha: {date.toString()}</Text>
       </View>
+ 
       <View style={styles.contentTable}> 
         <View style={styles.table}>
-          <View style={styles.tableRow}>
+          <View style={styles.marginBoletabody}>
+            <Text>__________________________________  </Text>
+          </View>
+          <View style={styles.tableRowHead}>
             <View style={styles.tableColHeadCantidad}>
-              <Text style={styles.tableCell}>Qty</Text>
+              <Text style={styles.tablecellHead}>#</Text>
             </View>
             <View style={styles.tableColHeadNombre}>
-              <Text style={styles.tableCell}>Nombre</Text>
+              <Text style={styles.tablecellHead}>Nombre</Text>
             </View>
             <View style={styles.tableColHeadPrecio}>
-              <Text style={styles.tableCell}>Precio</Text>
+              <Text style={styles.tablecellHead}>Precio</Text>
             </View>
             <View style={styles.tableColHeadSubtotal}>
-              <Text style={styles.tableCell}>Subtotal</Text>
+              <Text style={styles.tablecellHead}>Subtotal</Text>
             </View>
           </View>
-    
+          <View style={styles.marginBoletabody}>
+            <Text>***************************************************</Text>
+          </View>
           {
             dataInvoice.map((data,index)=>(
               <View style={styles.tableRow} key={index}>
@@ -216,44 +259,63 @@ return(
               </View>
             ))
           }
-          
+          <View style={styles.contentQuantity}>
+       
+            <Text >{countProducts} </Text>
+            <Text> Cantidad  </Text>
+
+          </View>
+              <View style={styles.marginBoletabody}>
+                <Text>***************************************************</Text>
+              </View>
         </View>
       </View>
- 
+  
        <View style={styles.contentTotal}>
-          <Text>Total: {Total}</Text>
+       
+          <Text >Total: </Text>
+          <Text ><FormatMoneda format={Total}/></Text>
+ 
        </View>
+   
        <View style={styles.contentTable}>
           <View style={styles.table}>
+      
             <View style={styles.tableRow}>
               <View style={styles.tableColHeadPaidWith}>
-                <Text style={styles.tableCell}>Cancela con</Text>
+                <Text style={styles.tablecellHead}>Cancela con</Text>
               </View>
               <View style={styles.tableColHeadPaidWith}>
-                <Text style={styles.tableCell}>Cambio</Text>
+                <Text style={styles.tablecellHead}>Cambio</Text>
               </View>
        
             </View>
+            <View style={styles.marginBoletabody}>
+              <Text>***************************************************</Text>
+            </View>
             <View style={styles.tableRow}>
               <View style={styles.tableColBodyPaidWith}>
-                <Text style={styles.tableCell}><FormatMoneda format={payWith}/></Text>
+                <Text style={styles.tableCellbody}><FormatMoneda format={payWith}/></Text>
               </View>
               <View style={styles.tableColBodyPaidWith}>
-                <Text style={styles.tableCell}><FormatMoneda format={change}/></Text>
+                <Text style={styles.tableCellbody}><FormatMoneda format={change}/></Text>
               </View>
-       
+         
+            </View>
+            <View style={styles.marginBoletabody}>
+              <Text></Text>
             </View>
           </View>
          
         
        </View>
-       <View style={styles.marginBoleta}>
-        <Text>_______________________________</Text>
-      </View>
+     
 
       
     </Page>
   </Document>
+  }
+  </>
 )
 }
 

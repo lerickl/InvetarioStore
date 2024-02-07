@@ -1,14 +1,11 @@
-
-import { PDFDownloadLink } from "@react-pdf/renderer"
+'use client'
+ 
 import { PDFViewer } from "@react-pdf/renderer" 
-import { BoletaPDF } from "../../pdfPrint/boleta"
-import { renderToStream } from "@react-pdf/renderer"
-import { IDataInvoice } from "@/app/services/interfaces/dataInvoice"
+import { BoletaPDF } from "../../pdfPrint/boleta" 
 import  styles  from './pdfBoleta.module.css'
-import React, { use, useEffect, useState } from "react"
+import React, {  useEffect, useState } from "react"
 import {  IInvoiceViewPDF } from "@/app/services/interfaces/invoiceView.types"
-import { Invoice } from "@/app/services/interfaces/invoice"
-import { getInvoiceById } from "@/app/services/invoicesService"
+import { Invoice } from "@/app/services/interfaces/invoice" 
 import { getAlldataInvoicesWithIdInvoice } from "@/app/services/dataInvoices"
 import { getCustomerById } from "@/app/services/customerService"
  
@@ -36,23 +33,20 @@ export function BoletaContentPDF({invoice}:Props){
     fetchDataInvoice()  
   }, [invoice])
   useEffect(() => {
-
+    console.log('invoiceViewPDF',invoiceViewPDF)
   }, [invoiceViewPDF])
   return(
-    // <BoletaPDF dataInvoice={DataInvoice}/>
-    <div>
+    // <BoletaPDF dataInvoice={DataInvoice}/> 
      
-        <PDFViewer className={styles.PDFViewer} 
-         >
-      
-          <BoletaPDF dataInvoiceView={invoiceViewPDF!} />
-          
-        </PDFViewer>
- 
+      <>
+      {
+        invoiceViewPDF? <PDFViewer className={styles.PDFViewer} >
+    
+        <BoletaPDF dataInvoiceView={invoiceViewPDF!} />
         
-    </div>
-    
-    
+        </PDFViewer> :'Loading...'
+      }
+      </>
   )
 }
  

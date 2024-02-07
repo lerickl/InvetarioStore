@@ -37,6 +37,10 @@ export default async function Page(
         >
           <ButtonAdd><PlusIcon/>Agregar Producto</ButtonAdd>
         </Link>
+    
+      <section>
+        <Pagination totalPages={totalPages}/>
+      </section>
       <Suspense>
         <TableProducts query={query} currentPage={currentPage}/>
       </Suspense>

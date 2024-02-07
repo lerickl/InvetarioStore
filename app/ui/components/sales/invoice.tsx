@@ -30,7 +30,9 @@ export function Invoice({query,currentPage, Invoices}:IProps) {
           <div>
             <span onClick={handleClickClose}>X</span>
           </div>        
-          <BoletaContentPDF invoice={invoice}/> 
+        
+            <BoletaContentPDF invoice={invoice}/> 
+     
         </div>
         :''
        }

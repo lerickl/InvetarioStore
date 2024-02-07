@@ -77,9 +77,9 @@ export function CreateInvoice({ accion, selectProduct,SearchProductoBarcode, add
       paywith,
       products: invoice,
     }
-    if(addinvoiceView){
+    if(addinvoiceView){ 
       const response =   addinvoiceView({invoiceView:invoiceView}) 
-      console.log('response addinvoice'+response)
+      console.log('response',response)
     }
    
   }
@@ -97,7 +97,7 @@ export function CreateInvoice({ accion, selectProduct,SearchProductoBarcode, add
        
     
       <TableInvoice Invoice={invoice} paywith={setPaywith}  />
-      <FomrtCustomers name={name} direccion={direccion} dni={dni} />
+      <FomrtCustomers name={setName} direccion={setDireccion} dni={setDni} />
       <div>
         <ButtonRipple onClick={ saveInvoice}>Guardar Venta</ButtonRipple>
   

@@ -29,7 +29,7 @@ export const TableInvoice = ({ Invoice, paywith}:Props) => {
   }
   useEffect(() => {
     setReturnPaid(Number(paidWith)-total)
-    paywith(paidWith.toString())
+    paywith(paidWith.toString()) 
   }, [paidWith,total])
   useEffect(() => {
     setTotal(invoice.reduce((acc, item) => acc + Number(item.subtotal!), 0))
@@ -90,16 +90,16 @@ export const TableInvoice = ({ Invoice, paywith}:Props) => {
         (value, name, values) => {console.log(value, name, values); setPaidWith(Number(value?.replace(",",".")))}}
       />
     </div>
-    
+    <div className={styles.total}>
+      <p>Total</p>
+      <p className={styles.totalP}><FormatMoneda format={total}/></p>
+    </div>
     <div className={styles.total}>
       <p>Cambio </p>
       <p className={styles.totalP}><FormatMoneda format={returnPaid}/></p>
      
     </div>
-    <div className={styles.total}>
-      <p>Total</p>
-      <p className={styles.totalP}><FormatMoneda format={total}/></p>
-    </div>
+   
    </div>
   </div>
   )
