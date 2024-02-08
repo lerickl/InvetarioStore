@@ -33,7 +33,9 @@ export function Card({
       <h3>{title}</h3>
       
     </div>
-    <p><FormatMoneda format={value!}/></p>
+    <p>{
+    type === 'collected' || type === 'pending' ? <FormatMoneda format={value!}/>:
+    value.toString()}</p>
   </article>
   );
 }

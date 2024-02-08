@@ -22,7 +22,7 @@ const AllCards = async()=>{
     numberOfInvoices,
     totalPaidInvoices,
     totalPendingInvoices} =  await useCardsDashboard()
- 
+    
   return (
     <div className={styles.summary}>               
         <Card title="Total Vendido" value={totalPaidInvoices} type="collected" />

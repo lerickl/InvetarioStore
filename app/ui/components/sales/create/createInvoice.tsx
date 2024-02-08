@@ -30,12 +30,16 @@ export function CreateInvoice({ accion, selectProduct,SearchProductoBarcode, add
   
   const [searchBarcode, setSearchBarcode] = useState('')
   const {products, getProducts } = useSearchProducts()
-  const {invoice, addProduct} = useAddDataInvoice()  
-  
+  const {invoice, addProduct, deleteDataProduct} = useAddDataInvoice()  
+  const [deleteProduct, setDeleteProduct] = useState('')
   const DataSearch = (DatosSearch:IProduct)=>{
     addProduct(DatosSearch)
   }
-
+  useEffect(() => {
+    if(deleteProduct){
+     deleteDataProduct(deleteProduct)
+    }
+  }  ,[deleteProduct])
 
   useEffect(() => {
    
@@ -64,7 +68,7 @@ export function CreateInvoice({ accion, selectProduct,SearchProductoBarcode, add
   const [direccion, setDireccion] = useState('')
   const [dni, setDni] = useState('')
   const [paywith, setPaywith] = useState('')
-
+    
   const saveInvoice =  () => {
     if(invoice.length === 0){
       console.log('no hay productos')
@@ -77,6 +81,7 @@ export function CreateInvoice({ accion, selectProduct,SearchProductoBarcode, add
       paywith,
       products: invoice,
     }
+    
     if(addinvoiceView){ 
       const response =   addinvoiceView({invoiceView:invoiceView}) 
       console.log('response',response)
@@ -89,19 +94,18 @@ export function CreateInvoice({ accion, selectProduct,SearchProductoBarcode, add
       <SearchSelected selectProduct={selectProduct} producto={DataSearch} >
       Buscar Producto
       </SearchSelected>
- 
+     
       <SearchProduct placeholder='Buscar Producto' 
               producto={DataSearch} 
               SearchProductoBarcode={SearchProductoBarcode}
       ></SearchProduct>
-       
-    
-      <TableInvoice Invoice={invoice} paywith={setPaywith}  />
-      <FomrtCustomers name={setName} direccion={setDireccion} dni={setDni} />
-      <div>
+       <div >
         <ButtonRipple onClick={ saveInvoice}>Guardar Venta</ButtonRipple>
   
       </div>
+      <TableInvoice Invoice={invoice} paywith={setPaywith} Delete={setDeleteProduct} />
+      <FomrtCustomers name={setName} direccion={setDireccion} dni={setDni} />
+     
     </section>
   )
 

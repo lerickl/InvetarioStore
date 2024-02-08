@@ -1,5 +1,5 @@
 import {getAllInvoices, AddInvoice, fetchInvoiceTotalPages } from '../../../services/invoicesService'
-import { DataInvoice, IInvoice } from '@/app/services/interfaces/invoice'
+import { DataInvoice, IInvoice, Invoice } from '@/app/services/interfaces/invoice'
 import {  addAllDataInvoices } from '@/app/services/dataInvoices'
 import { UpdateStockProduct} from '@/app/services/productServices'
 import { revalidatePath } from 'next/cache'
@@ -26,7 +26,7 @@ import { addCustomer } from '@/app/services/customerService'
 import { IDataInvoiceInsert } from '@/app/services/interfaces/dataInvoice'
 export const AddInvoiceView = async({invoiceView}:{invoiceView:IInvoiceView}) => {
   'use server'
-  console.log(invoiceView)
+  revalidatePath('/dashboard/sales/create') 
   let total = invoiceView.products.reduce((acc, item) => acc + Number(item.subtotal)!, 0)
   let customer:ICustomer = {
     name:invoiceView.name,     
@@ -34,13 +34,14 @@ export const AddInvoiceView = async({invoiceView}:{invoiceView:IInvoiceView}) =>
     direccion:invoiceView.direccion, 
     paywith:invoiceView.paywith
   }
-  let customerResponse = await addCustomer(customer)
-  console.log('customerResponse'+customerResponse.id)
+  let customerResponse = await addCustomer(customer) 
   const idcustomer:string  = customerResponse?.id!
-
-  const invoiceInsert:IInvoice = {
+  const options = {timeZone: 'America/Lima'}
+  const date = new Date().toLocaleString('es-PE', options)
+  const invoiceInsert:Invoice = {
     customer_id:idcustomer,
     amount:total,
+    date: date,
     status:'paid',
   }
   //addinvoice

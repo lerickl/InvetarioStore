@@ -38,9 +38,9 @@ export default async function Page({
       </section>
       <section>
       
-          <Invoice Invoices={invoices} />
-          {/* <TableInvoice Invoices={invoices}/> */}
-   
+        <Invoice Invoices={invoices} />
+        {/* <TableInvoice Invoices={invoices}/> */}
+  
       <Pagination totalPages={totalPages}/>
       </section>
   

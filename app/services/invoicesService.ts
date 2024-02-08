@@ -5,7 +5,7 @@ import { Database } from './database.types'
 export const getAllInvoices = async () => {
   type Invoice = Database['public']['Tables']['invoices']['Row']
   try{
-    const { data, error } = await supabaseClient.from('invoices').select('*')
+    const { data, error } = await supabaseClient.from('invoices').select('*').order('date', {ascending: false})
     return data as Array<Invoice>
   }catch(e){
     throw new Error()

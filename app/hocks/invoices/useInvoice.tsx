@@ -1,8 +1,7 @@
-import { useState } from 'react'
-import {IInvoice} from '../../services/interfaces/invoice'
+import { useState } from 'react' 
 import {IProduct } from '../../services/interfaces/product'
 import { IDataInvoice } from '@/app/services/interfaces/dataInvoice'
-
+ 
 export function useAddDataInvoice( ) {
   const [invoice, setInvoice] = useState<Array<IDataInvoice>>([])
   const addProduct = (product:IProduct) => {
@@ -30,6 +29,9 @@ export function useAddDataInvoice( ) {
     setInvoice(invoice.concat(newDataInvoice)) 
      
   }
-  
-  return {invoice, addProduct}
+  const deleteDataProduct = (id:string) => {
+    const deleteInvoice = invoice.filter((item) => item.id !== id)
+    setInvoice(deleteInvoice)
+  }
+  return {invoice, addProduct, deleteDataProduct}
 }

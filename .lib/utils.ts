@@ -51,3 +51,19 @@ export const generatePagination = (currentPage: number, totalPages: number) => {
     totalPages,
   ];
 };
+
+
+export const FormatoFechaHora = ({ fecha }: { fecha: string }) => {
+  const formatearFechaHora = (fechaOriginal: string) => {
+    const fecha = new Date(fechaOriginal);
+    const dia = fecha.getDate().toString().padStart(2, '0');
+    const mes = (fecha.getMonth() + 1).toString().padStart(2, '0');
+    const año = fecha.getFullYear();
+    const horas = fecha.getHours().toString().padStart(2, '0');
+    const minutos = fecha.getMinutes().toString().padStart(2, '0');
+    const segundos = fecha.getSeconds().toString().padStart(2, '0');
+    return `${dia}/${mes}/${año} ${horas}:${minutos}:${segundos}`;
+  };
+
+  return formatearFechaHora(fecha)
+}

@@ -5,7 +5,7 @@ import { FormatMoneda } from '../formatToMoneda/fornatMoneda'
 import React, { Dispatch, SetStateAction, useState } from 'react'
  import {   Invoice } from '@/app/services/interfaces/invoice'
 import { ButtonRipple } from '../buttons/buttonRipple'
- 
+import {FormatoFechaHora} from '@/.lib/utils'
 interface IProps {
    
   query?: string,
@@ -42,7 +42,7 @@ export  function TableInvoice({ query ,invoice,Invoices}:IProps){
               <tr key={index}>
                 <td className={styles.tdCodigo}>{invoice.id}</td>
                 <td><FormatMoneda format={invoice.amount}/></td>
-                <td>{invoice.date}</td>
+                <td>{FormatoFechaHora({fecha:invoice.date}) }</td>
                 <td>
                   <span className={`${invoice.status==='paid'?styles.spanStatusPaid:styles.spanStatusPending}`}>
                     {invoice.status==='paid'?'Pagado':'Pendiente'}

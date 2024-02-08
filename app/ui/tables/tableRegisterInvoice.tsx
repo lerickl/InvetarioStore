@@ -8,8 +8,9 @@ import { FormatMoneda } from '../formatToMoneda/fornatMoneda'
 interface Props {
   Invoice:Array<IDataInvoice>
   paywith:Dispatch<SetStateAction<string>>
+  Delete:Dispatch<SetStateAction<string>>
 }
-export const TableInvoice = ({ Invoice, paywith}:Props) => {
+export const TableInvoice = ({ Invoice, paywith, Delete  } :Props) => {
 
   const [invoice, setInvoice] = useState<Array<IDataInvoice>>(Invoice)
   const [total, setTotal] = useState(0)
@@ -23,9 +24,8 @@ export const TableInvoice = ({ Invoice, paywith}:Props) => {
     setInvoice(updateInvoiceItem)
   } 
   const handlerDeleteItem = (index:number) => {
-    const updateInvoiceItem = [...invoice];
-    updateInvoiceItem.splice(index, 1);
-    setInvoice(updateInvoiceItem)
+    Delete(invoice[index].id!)
+ 
   }
   useEffect(() => {
     setReturnPaid(Number(paidWith)-total)

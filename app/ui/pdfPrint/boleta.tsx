@@ -64,13 +64,9 @@ const styles = StyleSheet.create({
   },
   tableColHeadNombre: {
     flexDirection: 'column',
-    width: '60',
+    width: '100',
   },
-  tableColHeadPrecio: {
   
-    flexDirection: 'column',
-    width: '40',
-  },
   tableColHeadSubtotal: {
   
     flexDirection: 'column',
@@ -84,13 +80,8 @@ const styles = StyleSheet.create({
   tableColBodyNombre: {
   
     flexDirection: 'column',
-    width: '60',
-  },
-  tableColBodyPrecio: {
-  
-    flexDirection: 'column',
-    width: '40',
-  },
+    width: '100',
+  }, 
   tableColBodySubtotal: {
   
     flexDirection: 'column',
@@ -186,8 +177,7 @@ export const BoletaPDF = ({dataInvoiceView}:Props)=> {
         id: product.id,
         id_product: product.id_product,
         name_product: product.name_product,
-        quantity: product.quantity,
-        price: product.quantity,
+        quantity: product.quantity, 
         subtotal: product.subtotal
       };
     }); 
@@ -231,9 +221,7 @@ return(
             <View style={styles.tableColHeadNombre}>
               <Text style={styles.tablecellHead}>Nombre</Text>
             </View>
-            <View style={styles.tableColHeadPrecio}>
-              <Text style={styles.tablecellHead}>Precio</Text>
-            </View>
+         
             <View style={styles.tableColHeadSubtotal}>
               <Text style={styles.tablecellHead}>Subtotal</Text>
             </View>
@@ -250,9 +238,7 @@ return(
                 <View style={styles.tableColBodyNombre}>
                   <Text style={styles.tableCell}>{data.name_product}</Text>
                 </View>
-                <View style={styles.tableColBodyPrecio}>
-                  <Text style={styles.tableCell}><FormatMoneda format={data.price!}/></Text>
-                </View>
+            
                 <View style={styles.tableColBodySubtotal}>
                   <Text style={styles.tableCell}><FormatMoneda format={Number(data.subtotal)!}/></Text>
                 </View>
@@ -303,7 +289,7 @@ return(
          
             </View>
             <View style={styles.marginBoletabody}>
-              <Text></Text>
+              <Text>__________________________________</Text>
             </View>
           </View>
          
