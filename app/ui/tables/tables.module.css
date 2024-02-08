@@ -902,3 +902,7 @@
   justify-content: center;
   align-items: center;
 }
+.contentAction form{
+  margin-top: 1rem;
+  margin-left: 5px;
+}

@@ -21,7 +21,7 @@ export const ButtonDelete=({ id,accion, children}:Props)=>{
  
   return (
    <>
-      <form className={styles.contentButtonDelete} onSubmit={deleteInvoiceWithId}>
+      <form   onSubmit={deleteInvoiceWithId}>
         <button type="submit"  >
           <span className={styles.svgDeletProduct}>
           <DeleteIcon />{}
