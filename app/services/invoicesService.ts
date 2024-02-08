@@ -1,5 +1,6 @@
- 
+
 import {supabaseClient} from './dataConection'
+import { getAlldataInvoicesWithIdInvoice } from './dataInvoices'
 import { Database } from './database.types'
  
 export const getAllInvoices = async () => {
@@ -97,4 +98,26 @@ export async function fetchInvoiceTotalPages(query: string) {
   } catch (err) {
     throw err
   }
+}
+
+
+export async function CancelInvoice(id: string) {
+  const invoice = await getInvoiceById(id)
+  const getAllDataInvoices = await getAlldataInvoicesWithIdInvoice(id)
+  const updateStockProducts= getAllDataInvoices.map(async (product)=>{
+    const { data, error } = await supabaseClient.from('products').select('*').eq('id', product.id_product)
+    const productData = data as Array<Database['public']['Tables']['products']['Row']>
+    const newStock = productData[0].stock! + product.quantity!
+    const { data: updatedProduct, error: errorUpdate } = await supabaseClient.from('products').update({stock: newStock}).eq('id', product.id_product)
+    return updatedProduct
+  })
+  try{
+    const response = await Promise.all(updateStockProducts)
+    const { data, error } = await supabaseClient.from('invoices').update({status: 'canceled'}).eq('id', id)
+    return data
+  }
+  catch(e){
+    throw new Error()
+  } 
+  return   
 }

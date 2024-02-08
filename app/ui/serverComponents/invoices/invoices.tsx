@@ -1,4 +1,4 @@
-import {getAllInvoices, AddInvoice, fetchInvoiceTotalPages } from '../../../services/invoicesService'
+import {getAllInvoices, AddInvoice, fetchInvoiceTotalPages, CancelInvoice } from '../../../services/invoicesService'
 import { DataInvoice, IInvoice, Invoice } from '@/app/services/interfaces/invoice'
 import {  addAllDataInvoices } from '@/app/services/dataInvoices'
 import { UpdateStockProduct} from '@/app/services/productServices'
@@ -9,6 +9,7 @@ export const AllInvoices = async()=>{
   'use server'
   revalidatePath('/dashboard/sales')
   const response = await getAllInvoices();
+ 
   return response
 }
 
@@ -83,4 +84,12 @@ export const SearchInvoiceTotalPages
   return response
 }
 
+
+export const CancelInvoiceById= async(id:string)=>{
+  'use server'
+  const cancelInvoice=await CancelInvoice(id)
+  revalidatePath('/dashboard/sales')
+  redirect('/dashboard/sales')
+
+}
  

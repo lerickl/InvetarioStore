@@ -19,9 +19,9 @@ export const getCustomerById = async (id: string) => {
 
 }
 export const getCustomerCount = async () => {
-  const { data, error } = await supabaseClient.from('customers').select('*',{count:'exact'})
+  const { data, error } = await supabaseClient.from('customers').select('*')
   try{
-    return data
+    return data?.length.toString()
   }catch(e){
     return error
   }

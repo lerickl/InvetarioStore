@@ -5,7 +5,8 @@ import { Suspense } from 'react'
 import { ButtonAdd } from '@/app/ui/buttons/buttonAdd'
 import { Breadcrumbs } from '@/app/ui/breadcrumbs/breadcrumbs'
 import { TableInvoice } from '@/app/ui/tables/tableInvoice'
-import Pagination from '@/app/ui/components/products/paginationProducts';
+import Pagination from '@/app/ui/components/products/paginationProducts'
+import { CancelInvoiceById } from '@/app/ui/serverComponents/invoices/invoices'
 export default async function Page({
   searchParams
 }: {
@@ -38,7 +39,7 @@ export default async function Page({
       </section>
       <section>
       
-        <Invoice Invoices={invoices} />
+        <Invoice Invoices={invoices} cancelInvoice={CancelInvoiceById} />
         {/* <TableInvoice Invoices={invoices}/> */}
   
       <Pagination totalPages={totalPages}/>

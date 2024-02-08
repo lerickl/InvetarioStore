@@ -51,7 +51,9 @@ export default async function TableProducts(
                         <UpdateProduct id={product.id}/>
                       </span>
                       {/* <a className={styles.svgEditProduct}><EditIcon/></a> */}
-                      <ButtonDelete  id={product.id} accion={DeleteProductById} /> 
+                      <ButtonDelete  id={product.id} accion={DeleteProductById} >
+                        ¿Estas seguro que deseas eliminar {product.name} de la lista de productos?
+                        </ButtonDelete> 
                     </div>
                   </td>
                 </tr>
