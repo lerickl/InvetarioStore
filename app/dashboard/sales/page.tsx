@@ -20,7 +20,7 @@ export default async function Page({
   const totalPages= await SearchInvoiceTotalPages({query})
   const invoices = await AllInvoices()
   return (
-   <main>
+   <div>
       <Breadcrumbs
        breadcrumbsProps={[
         {
@@ -45,6 +45,6 @@ export default async function Page({
       <Pagination totalPages={totalPages}/>
       </section>
   
-   </main>
+   </div>
   )
 }

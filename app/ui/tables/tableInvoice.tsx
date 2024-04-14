@@ -3,7 +3,7 @@ import styles from './tables.module.css'
 import { FormatMoneda } from '../formatToMoneda/fornatMoneda'
  
 import React, { Dispatch, SetStateAction, useState } from 'react'
- import {   Invoice } from '@/app/services/interfaces/invoice'
+import { Invoice } from '@/app/services/interfaces/invoice'
 import { ButtonRipple } from '../buttons/buttonRipple'
 import {FormatoFechaHora} from '@/.lib/utils'
 import { ButtonDelete } from '../buttons/buttonDelete'

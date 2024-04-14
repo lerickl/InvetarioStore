@@ -5,7 +5,7 @@ import { SelectSearchProduct } from '@/app/ui/serverComponents/products/products
 
 export default async function Page() {  
   return (   
-    <main className={raleway.className}>
+    <div className={raleway.className}>
       <Breadcrumbs 
       breadcrumbsProps={[
         {
@@ -21,6 +21,6 @@ export default async function Page() {
       />
 
       <FormProduct  searchSelected={SelectSearchProduct} />
-    </main>
+    </div>
  )
 }

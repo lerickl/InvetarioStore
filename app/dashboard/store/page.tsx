@@ -22,7 +22,7 @@ export default async function Page(
   const totalPages= await SearchProductBCTotalPages(query)
   return (
  
-    <main className={raleway.className}>     
+    <div className={raleway.className}>     
       <Breadcrumbs
        breadcrumbsProps={[
         {
@@ -47,7 +47,7 @@ export default async function Page(
       <Pagination totalPages={totalPages}/>
  
      
-    </main>
+    </div>
   )
 }
 

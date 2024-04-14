@@ -38,7 +38,7 @@ interface IRipple extends React.HTMLAttributes<HTMLElement>{
   y: number;
   size: number;
 }
-export const Ripple =  ({duration,...props}:RippleProps) => {
+export const Ripple =  ({duration,color,...props}:RippleProps) => {
  
   const [rippleArray, setRippleArray] =useState<{ x: number; y: number; size: number; }[]>([])
   useDebouncedRippleCleanUp(rippleArray.length, duration!, () => {
@@ -61,12 +61,20 @@ export const Ripple =  ({duration,...props}:RippleProps) => {
   
   return(
     <RippleContainer onMouseDown={handleMouseDown} {...props} >
+      <style jsx>
+        {
+          `
+          span{
+            --color-ripple-span: ${color || '#fff'};
+          }
+          `
+        }
+      </style>
       {rippleArray.length > 0 &&
         rippleArray.map((ripple, index) => {
           return (
           <span
-              key={"span" + index}
-               
+              key={"span" + index} 
             />
           );
         })} 

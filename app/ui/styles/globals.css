@@ -11,26 +11,49 @@
   --primary-color: #046780;
   --position-x:0;
   --position-y:0;
-}
+  --background-color:#111;
+  --color-imageUser: none ;
+  --font-color:#000;
 
-@media (prefers-color-scheme: dark) {
+  --font-color-inverse:#fff;
+  --color-background-thme: radial-gradient(ellipse at bottom, #c2edf8 0%, #ffffff 100%);
+  --color-background-thme-trasparent: radial-gradient(ellipse at bottom, #e0e0e07c 0%, #98a6f86c 100%);
+  --color-blue-green:#3cff00da;
+  --font-titles-color: #046780;
+  --color-shadows-primary:#0d00ca;
+  --color-shadows-secondary:#0cd8f3c9;
+}
+ 
+[data-theme='dark'] {
+  --color-shadows-primary:#0cd8f3c9;
+  --color-shadows-secondary:#3cff00da;
+  --font-titles-color: #046780;
+  --color-background-thme: radial-gradient(ellipse at bottom, #0d1d31 0%, #0c0d13 100%);
+  --color-blue-green:#0cd8f3c9 ;
+  --background-color:#fff;
+  --font-color:#fff; 
+  --font-color-inverse:#000;
+  --font-test-color:#000;
+
+  --color-Primary: #33e610;
+  --color-imageUser: none ;
+  --primary-color: #ff0303;
+}
+body{
+  background: var( --color-background-thme);
+  width: 100%;
+  max-width: 1324px;
+  align-items: center;
+  height: 100%;  
+  min-height: 100vh !important;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+/* @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  
 
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: #fff;
-  color: black;
+} */
  
-  /* linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb)); */
-}

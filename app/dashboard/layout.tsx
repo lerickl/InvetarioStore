@@ -1,22 +1,25 @@
 import './layout.css'
-import NavLinks from "../ui/dashboard/navLink";
+import NavLinks from "../ui/dashboard/navLink"
+import TopBar from '../ui/TopBar/topbar'  
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="section">
-      <div className='backgroundLayout'>
-       <div className='backgroundLayoutContent'>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-       </div>
-      </div>
-      <div className="contentGrid ">
-        <div className="grid">
-          <NavLinks />
-        </div>
-        <div className='grid' >{children}</div>
-      </div>
-    </div>
+    < >
+    
+      <header  >
+        <TopBar />
+      </header>
+      <aside  >
+        <NavLinks />
+      </aside>
+      <main  > 
+        {children}  
+      </main> 
+      <footer>
+        <p>© 2024</p>
+      </footer>
+    </ >
+   
+ 
+   
   );
 }

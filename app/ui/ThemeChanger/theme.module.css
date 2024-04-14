@@ -1,0 +1,88 @@
+.light{
+  color: #fffb00;
+  border-radius: 50%;
+  padding: 5px; 
+  margin: 3px;
+  border: solid 1px #ffd900;  
+}
+.light:hover{
+  background: #ffd9007e;
+}
+.dark{
+  margin: 3px;
+  padding: 5px;
+  border-radius: 50%; 
+  border: solid 1px #00084e;
+  color: #00084e;  
+ 
+}
+.dark:hover{
+  background: #00084e56;
+}
+.activelight{
+
+  
+  /* transform: translateX(0px); */
+  animation:2s ease-in-out moverightlight forwards;
+}
+.activelight:hover{
+  box-shadow: 0px 0px 10px 2px #fffb00;
+}
+.activedark{
+  animation:2s ease-in-out moveleftdark forwards;
+   
+}
+.activedark:hover{
+  box-shadow: 0px 0px 10px 2px #00084e;
+}
+.desactivedark{
+  animation:2s ease-in-out moverightdark forwards;
+}
+.desactivelight{ 
+  animation:2s ease-out moveleftlight forwards; 
+}
+@keyframes moveleftlight {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-50px);
+  }
+  
+}
+@keyframes moverightlight {
+  from {
+    transform: translateX(-45px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+  
+}
+@keyframes moveleftdark {
+  from {
+    transform: translateX(60px);
+  }
+  to {
+    transform: translateX(-42px);
+  }
+  
+}
+@keyframes moverightdark {
+  from {
+    transform: translateX(-42.5px);
+  }
+  to {
+    transform: translateX(60px);
+  }
+  
+}
+.ViewMode{
+  width: 50px;
+  display: flex; 
+  flex-direction: row;
+  padding: 3px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden; 
+}

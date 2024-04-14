@@ -17,11 +17,6 @@ const links = [
     name: 'Clientes',
     href: '/dashboard/clients',
     icon: ClientIcon,
-  },
-  {
-    name: 'Configuración',
-    href: '/dashboard/settings',
-    icon: SettingsIcon,
   } 
  
 
@@ -43,7 +38,7 @@ export default function NavLinks() {
   
   },[pathname])
   return (
-    <section className={`${styles.dashboard} ${orbitron.className} `}>
+    <section className={`${styles.menuLinks} ${orbitron.className} `}>
       {links.map((link) => {
           const LinkIcon = link.icon
           return (

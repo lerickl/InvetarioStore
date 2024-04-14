@@ -17,7 +17,7 @@
   opacity: 0 ;
   width: 1px;
   height: 1px;  
-  background-color: var(--primary-color);
+  background-color: var(--color-ripple-span);
  
   animation: ripple 2000ms  infinite;
 }

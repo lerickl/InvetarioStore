@@ -5,7 +5,7 @@ export default async function page(
   {params}:{params:{id:string}}) {
   const id=params.id
   return (
-    <main>
+    <div>
       <Breadcrumbs
        breadcrumbsProps={[
         {
@@ -20,7 +20,7 @@ export default async function page(
       ]}
       />
       <FormEditProduct id={id}  searchSelected={SelectSearchProduct}/>
-    </main>
+    </div>
   )
   
 }

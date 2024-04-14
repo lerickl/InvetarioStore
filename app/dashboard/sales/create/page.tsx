@@ -7,7 +7,7 @@ import { SelectSearchProduct, SearchProductoBarcode } from '@/app/ui/serverCompo
 import { AddInvoiceView } from '@/app/ui/serverComponents/invoices/invoices'
 export default function Page() {
   return (
-    <main className={raleway.className}>
+    <div className={raleway.className}>
       <Breadcrumbs
        breadcrumbsProps={[
         {
@@ -22,6 +22,6 @@ export default function Page() {
       />
       
       <CreateInvoice addinvoiceView={AddInvoiceView} accion={AddInvoiceAndDetails}  selectProduct={SelectSearchProduct} SearchProductoBarcode={SearchProductoBarcode}/>
-    </main>
+    </div>
   );
 }

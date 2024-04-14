@@ -1,7 +1,7 @@
 import { Breadcrumbs } from "@/app/ui/breadcrumbs/breadcrumbs"
 export default function Page() {
   return (
-    <main>
+    <div>
       <Breadcrumbs 
       breadcrumbsProps={[
         {
@@ -10,6 +10,6 @@ export default function Page() {
           active: true,
         }
       ]}/>
-    </main>
+    </div>
   )
 }
