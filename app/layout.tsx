@@ -3,13 +3,9 @@ import { Inter } from 'next/font/google'
 import './ui/styles/globals.css'
 import { Provider } from './ui/ThemeChanger/ThemeProvider' 
 const inter = Inter({ subsets: ['latin'] })
-export const dynamic = 'auto'
-export const dynamicParams = true
-export const revalidate = false
-export const fetchCache = 'auto'
-export const runtime = 'edge'
-export const preferredRegion = 'auto'
-export const maxDuration = 5
+ 
+ 
+export const runtime = 'edge'  
 export const metadata: Metadata = {
   title: 'Dulce como tu',
   description: 'control de inventario y ventas ',
