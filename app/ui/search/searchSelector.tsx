@@ -36,6 +36,9 @@ export const SearchSelected = (
     setListProductsx(undefined)
   }
   useEffect(() => {
+    if(searchProducto===''){
+      setListProductsxd(undefined)
+    }
     const delayDebounceFn = setTimeout( async() => {
       if (searchProducto) { 
         setSearchProducto(searchProducto) 

@@ -78,29 +78,29 @@ export const TableInvoice = ({ Invoice, paywith, Delete  } :Props) => {
       </tbody>
     </table>
    <div className={styles.Allmounts}>
-   <div className={styles.total}>
-      <p>Paga con</p>      
-      <CurrencyInput
-      className={styles.inputQuantity} 
-      prefix='S/.'
-      decimalSeparator=","
-      groupSeparator="."
- 
-      onValueChange={
-        (value, name, values) => {console.log(value, name, values); setPaidWith(Number(value?.replace(",",".")))}}
-      />
-    </div>
     <div className={styles.total}>
-      <p>Total</p>
-      <p className={styles.totalP}><FormatMoneda format={total}/></p>
+        <p>Paga con</p>      
+        <CurrencyInput
+        className={styles.inputQuantity} 
+        prefix='S/.'
+        decimalSeparator=","
+        groupSeparator="."
+  
+        onValueChange={
+          (value, name, values) => {console.log(value, name, values); setPaidWith(Number(value?.replace(",",".")))}}
+        />
+      </div>
+      <div className={styles.total}>
+        <p>Total</p>
+        <p className={styles.totalP}><FormatMoneda format={total}/></p>
+      </div>
+      <div className={styles.total}>
+        <p>Cambio </p>
+        <p className={styles.totalP}><FormatMoneda format={returnPaid}/></p>
+      
+      </div>
+    
     </div>
-    <div className={styles.total}>
-      <p>Cambio </p>
-      <p className={styles.totalP}><FormatMoneda format={returnPaid}/></p>
-     
-    </div>
-   
-   </div>
   </div>
   )
 

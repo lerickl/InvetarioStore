@@ -1,7 +1,9 @@
  
 
 
-
+.spanSelected{
+  transform: translateY(5px);
+}
 .selectMenu{
   width: 100%;
  

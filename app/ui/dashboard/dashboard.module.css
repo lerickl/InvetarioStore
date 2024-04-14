@@ -116,7 +116,7 @@
   }
   .menuLinks { 
     flex-direction: row;
-    margin-bottom: 1rem;
+    margin-bottom: 5px !important;
     padding: 5px; 
     margin-top: auto;  
 

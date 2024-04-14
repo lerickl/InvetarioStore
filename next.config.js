@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const path = require('path');
 const nextConfig = {
-  experimental: {
-    runtime: 'edge',
-  },
+  // experimental: {
+  //   runtime: 'edge',
+  // },
   webpack: (config) => {
     config.resolve.fallback = { fs: false, os: false, path: false };
    
