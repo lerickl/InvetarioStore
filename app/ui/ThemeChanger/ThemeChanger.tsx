@@ -5,15 +5,13 @@ import { useState, useEffect } from 'react'
 import { DarkModeIcon, LightModeIcon } from '../assets/icons'
 export const ThemeChanger = () => {
   const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
-  const [Theme,setThemes] = useState('')
+  const { theme, setTheme } = useTheme() 
 
   // useEffect only runs on the client, so now we can safely show the UI
 
   useEffect(() => {
    
-    console.log('theme', theme)
-    theme=== 'system'?setThemes('light'):setThemes('dark')
+    console.log('theme', theme) 
     setMounted(true)
   }, [])
 
@@ -23,8 +21,8 @@ export const ThemeChanger = () => {
  
   return (
     <div className={styles.ViewMode}> 
-      <button className={`${styles.light} ${Theme==='light'?styles.activelight:styles.desactivelight} `} onClick={() => setTheme('dark')}><LightModeIcon/>{}</button>
-      <button className={`${styles.dark}  ${Theme==='dark'?styles.activedark:styles.desactivedark} `} onClick={() => setTheme('light')}><DarkModeIcon/>{}</button>
+      <button className={`${styles.light} ${theme==='light'||theme==='system'?styles.activelight:styles.desactivelight} `} onClick={() => setTheme('dark')}><LightModeIcon/>{}</button>
+      <button className={`${styles.dark}  ${theme==='dark'?styles.activedark:styles.desactivedark} `} onClick={() => setTheme('light')}><DarkModeIcon/>{}</button>
     </div>
   )
 }
