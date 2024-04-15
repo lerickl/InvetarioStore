@@ -113,7 +113,7 @@ main{
   position: relative; 
   margin-top: 3.5rem;
   padding: 1rem;
-
+  width: -webkit-fill-available;
 }
 main div{ 
   position: relative;
