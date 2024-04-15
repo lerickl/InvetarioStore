@@ -12,7 +12,7 @@ interface IProps {
   Invoices?:Invoice[]
   query?: string,
   currentPage?: number,
-  cancelInvoice?: (id: string) => Promise<void>
+  cancelInvoice?: (id: string) => Promise<null>
 }
 export function Invoice({query,currentPage, Invoices, cancelInvoice}:IProps) {
   const [invoice, setInvoice] = useState<Invoice>()

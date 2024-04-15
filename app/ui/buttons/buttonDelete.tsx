@@ -5,7 +5,7 @@ import styles from './buttons.module.css'
 import { DeleteIcon } from '../assets/icons'
 interface Props extends React.HTMLProps<HTMLButtonElement> { 
   id: string; 
-  accion: (id: string) => Promise<void>
+  accion: (id: string) => Promise<null>
 }
 export const ButtonDelete=({ id,accion, children}:Props)=>{
   const [showModal, setShowModal] = useState(false);

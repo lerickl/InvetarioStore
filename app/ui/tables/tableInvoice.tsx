@@ -14,7 +14,7 @@ interface IProps {
   currentPage?: number,
   invoice?: Dispatch<SetStateAction<Invoice | undefined>>
   Invoices?:Invoice[]
-  cancelInvoice?: (id: string) => Promise<void>
+  cancelInvoice?: (id: string) => Promise<null>
 }
 export  function TableInvoice({ query ,invoice,Invoices, cancelInvoice}:IProps){
   // const invoices =  allInvoices!()
@@ -23,11 +23,6 @@ export  function TableInvoice({ query ,invoice,Invoices, cancelInvoice}:IProps){
     const Getinvoice = invoices?.find(invoice=>invoice.id===id) as Invoice     
     invoice!(Getinvoice)
      
-  }
-  const handlerCancelInvoice=async(id:string)=>{
-    await cancelInvoice!(id)
-    const newInvoices = invoices.filter(invoice=>invoice.id!==id)
-    setInvoices(newInvoices)
   }
   return(
     <section className={styles.sectionTables}>
@@ -52,7 +47,7 @@ export  function TableInvoice({ query ,invoice,Invoices, cancelInvoice}:IProps){
                 <td>{invoice.date}</td>
                 <td>
                   <span className={`${invoice.status==='paid'?styles.spanStatusPaid:styles.spanStatusPending}`}>
-                    {invoice.status==='paid'?'Pagado':'Anulado'}
+                    {invoice.status==='paid'?'Pagado':'Pendiente'}
                   </span>
                 </td>
                 <td className={styles.contentAction}>

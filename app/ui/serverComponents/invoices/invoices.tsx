@@ -124,7 +124,7 @@ export const CancelInvoiceById= async(id:string)=>{
   'use server'
   await CancelInvoice(id)
   revalidatePath('/dashboard/sales') 
-  // redirect('/dashboard/sales')
+  redirect('/dashboard/sales')
 
 }
  
