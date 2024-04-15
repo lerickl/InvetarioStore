@@ -9,6 +9,7 @@ export function useAddDataInvoice( ) {
     {
       return invoice.map((item)=>{
         if(item.id === product.id){
+          
            item.quantity = item.quantity! + 1
            item.subtotal = (Number(item.quantity!) * Number(item.price!)).toString()
            setInvoice([...invoice])

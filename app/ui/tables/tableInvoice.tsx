@@ -14,7 +14,7 @@ interface IProps {
   currentPage?: number,
   invoice?: Dispatch<SetStateAction<Invoice | undefined>>
   Invoices?:Invoice[]
-  cancelInvoice?: (id: string) => Promise<null>
+  cancelInvoice?: (id: string) => Promise<void>
 }
 export  function TableInvoice({ query ,invoice,Invoices, cancelInvoice}:IProps){
   // const invoices =  allInvoices!()
@@ -23,6 +23,11 @@ export  function TableInvoice({ query ,invoice,Invoices, cancelInvoice}:IProps){
     const Getinvoice = invoices?.find(invoice=>invoice.id===id) as Invoice     
     invoice!(Getinvoice)
      
+  }
+  const handlerCancelInvoice=async(id:string)=>{
+    await cancelInvoice!(id)
+    const newInvoices = invoices.filter(invoice=>invoice.id!==id)
+    setInvoices(newInvoices)
   }
   return(
     <section className={styles.sectionTables}>
@@ -44,10 +49,10 @@ export  function TableInvoice({ query ,invoice,Invoices, cancelInvoice}:IProps){
               <tr key={index}>
                 <td className={styles.tdCodigo}>{invoice.id}</td>
                 <td><FormatMoneda format={invoice.amount}/></td>
-                <td>{FormatoFechaHora({fecha:invoice.date}) }</td>
+                <td>{invoice.date}</td>
                 <td>
                   <span className={`${invoice.status==='paid'?styles.spanStatusPaid:styles.spanStatusPending}`}>
-                    {invoice.status==='paid'?'Pagado':'Pendiente'}
+                    {invoice.status==='paid'?'Pagado':'Anulado'}
                   </span>
                 </td>
                 <td className={styles.contentAction}>

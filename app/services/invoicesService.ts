@@ -54,7 +54,8 @@ export const getinvoiceStatusPromise = async () => {
 
 export const AddInvoice = async (invoice: Database['public']['Tables']['invoices']['Insert']) => {
  
-  const { data, error } = await supabaseClient.from('invoices').insert(invoice).select()
+  const { data, error } = await supabaseClient.from('invoices').insert(invoice).select('*')
+ 
   try{ 
    
     return data?.[0]

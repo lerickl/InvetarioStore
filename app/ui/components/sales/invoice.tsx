@@ -3,7 +3,7 @@ import { IInvoiceViewPDF } from '@/app/services/interfaces/invoiceView.types'
 import {TableInvoice} from '../../tables/tableInvoice'
 import styles from './sales.module.css' 
 import {  Suspense, useEffect, useState } from 'react'
-import { Invoice } from '@/app/services/interfaces/invoice'
+import type{ Invoice } from '@/app/services/interfaces/invoice'
 import { BoletaContentPDF } from '../pdfInvoices/PdfBoleta'
  
 interface IProps {
@@ -12,7 +12,7 @@ interface IProps {
   Invoices?:Invoice[]
   query?: string,
   currentPage?: number,
-  cancelInvoice?: (id: string) => Promise<null>
+  cancelInvoice?: (id: string) => Promise<void>
 }
 export function Invoice({query,currentPage, Invoices, cancelInvoice}:IProps) {
   const [invoice, setInvoice] = useState<Invoice>()
@@ -20,6 +20,7 @@ export function Invoice({query,currentPage, Invoices, cancelInvoice}:IProps) {
     
     setInvoice(invoice)
   }, [invoice])
+ 
   const handleClickClose=()=>{
     setInvoice(undefined)
   }

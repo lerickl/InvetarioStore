@@ -28,6 +28,7 @@ import { IDataInvoiceInsert } from '@/app/services/interfaces/dataInvoice'
 export const AddInvoiceView = async({invoiceView}:{invoiceView:IInvoiceView}) => {
   'use server'
   revalidatePath('/dashboard/sales/create') 
+  console.log('invoiceView'+JSON.stringify(invoiceView.products[0]))
   let total = invoiceView.products.reduce((acc, item) => acc + Number(item.subtotal)!, 0)
   let customer:ICustomer = {
     name:invoiceView.name,     
@@ -35,47 +36,75 @@ export const AddInvoiceView = async({invoiceView}:{invoiceView:IInvoiceView}) =>
     direccion:invoiceView.direccion, 
     paywith:invoiceView.paywith
   }
+ 
   let customerResponse = await addCustomer(customer) 
   const idcustomer:string  = customerResponse?.id!
   const options = {timeZone: 'America/Lima'}
   const date = new Date().toLocaleString('es-PE', options)
-  const invoiceInsert:Invoice = {
+ 
+  const invoiceInsert:Invoice = { 
+    id:undefined,
     customer_id:idcustomer,
     amount:total,
-    date: date,
+    date: (date),
     status:'paid',
   }
-  //addinvoice
+ 
   let invoiceResponse = await AddInvoice(invoiceInsert)
-  console.log('invoiceResponse'+invoiceResponse.id)
+ 
   const idInvoice:string = invoiceResponse?.id!
   //update stock products 
   const response = invoiceView.products.map(async(product)=>{ 
     await UpdateStockProduct({productDataInvoice: product})
   })
+
   try{
     const updateresponse=await Promise.all(response)
-    console.log('updateresponse'+updateresponse)
+ 
   }
   catch(e){
     console.log(e)
   }
+ 
   const alldatainvoice: IDataInvoiceInsert[] = invoiceView.products.map((product) => {
     const dataInvoice: IDataInvoiceInsert = {     
       id_invoice:idInvoice,
       id_product: product.id!,
-      name_product: product.name_product!,
+      name_product: product.name_product!, 
       quantity: product.quantity!, 
-      subtotal: (product.price!*product.quantity!).toString() 
+      subtotal: (product.price!*product.quantity!).toString()
     }
     return dataInvoice
   })
+ 
   const insertAwait= await addAllDataInvoices({ AllDataInvoices: alldatainvoice });
-  console.log('insertAwait'+insertAwait)
+ 
   
   revalidatePath('/dashboard/sales')
   redirect('/dashboard/sales')
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const SearchInvoiceTotalPages 
 = async({query}:{query:string})=>{
@@ -85,11 +114,17 @@ export const SearchInvoiceTotalPages
 }
 
 
+
+
+
+
+
+
 export const CancelInvoiceById= async(id:string)=>{
   'use server'
-  const cancelInvoice=await CancelInvoice(id)
-  revalidatePath('/dashboard/sales')
-  redirect('/dashboard/sales')
+  await CancelInvoice(id)
+  revalidatePath('/dashboard/sales') 
+  // redirect('/dashboard/sales')
 
 }
  

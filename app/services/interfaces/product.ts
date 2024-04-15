@@ -11,6 +11,8 @@ export interface IProduct {
   units?: number | null
   urlimage?: string | null
 }
+//id_product ->contiene el id del contenedor del producto
+//un producto puede contener a otro
 export interface IProductRow {
   barcode?: string | null
   category?: string | null

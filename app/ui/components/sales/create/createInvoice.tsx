@@ -33,6 +33,7 @@ export function CreateInvoice({ accion, selectProduct,SearchProductoBarcode, add
   const {invoice, addProduct, deleteDataProduct} = useAddDataInvoice()  
   const [deleteProduct, setDeleteProduct] = useState('')
   const DataSearch = (DatosSearch:IProduct)=>{
+    console.log('DatosSearch',DatosSearch)
     addProduct(DatosSearch)
   }
   useEffect(() => {
@@ -59,6 +60,7 @@ export function CreateInvoice({ accion, selectProduct,SearchProductoBarcode, add
     //const productos = producto && producto[0]
     const product = products && products[0];
     if (product) {
+      console.log('product',product)
       addProduct(product);
       setSearchBarcode('')
       
@@ -84,7 +86,7 @@ export function CreateInvoice({ accion, selectProduct,SearchProductoBarcode, add
     
     if(addinvoiceView){ 
       const response =   addinvoiceView({invoiceView:invoiceView}) 
-      console.log('response',response)
+ 
     }
    
   }
